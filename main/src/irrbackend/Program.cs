@@ -25,6 +25,6 @@ app.MapControllerRoute(
     name: "db",
     pattern: "db/{action=read}/{id?}");
 
-app.MapFallbackToFile("uknown.html");
+app.MapFallbackToFile("index.html");
 
 app.Run();
