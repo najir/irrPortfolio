@@ -11,7 +11,10 @@ namespace irrbackend.Controllers
 		{
 			_logger = logger;
 		}
-
+		public IActionResult Home()
+		{
+			return View(); //Replace with equivalent
+		}
 
 	}
 

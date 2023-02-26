@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace irrbackend.Controllers
 {
-	[Route("[controller]")]
 	[ApiController]
+	[Route("[controller]")]
 	public class DbController : ControllerBase
 	{
 		private readonly ILogger<DbController> _logger;
@@ -14,14 +14,14 @@ namespace irrbackend.Controllers
 		}
 
 		[HttpPost]
-		public string PostData(string id)
+		public IActionResult PostData(string id)
 		{
-			return id;
+			return Content($"Post data called with {id}");
 		}
 		[HttpGet("{id}")]
 		public IActionResult GetData(string id)
 		{
-			return ControllerContext.MyDisplayRouteInfo(id);
+			return Content($"Get data called with {id}");
 		}
 
 	}
