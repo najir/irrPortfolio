@@ -4,11 +4,11 @@ namespace irrbackend.Controllers
 {
 	[ApiController]
 	[Route("[controller]")]
-	public class userController : ControllerBase
+	public class UserController : ControllerBase
 	{
-		private readonly ILogger<userController> _logger;
+		private readonly ILogger<UserController> _logger;
 
-		public userController(ILogger<userController> logger)
+		public UserController(ILogger<UserController> logger)
 		{
 			_logger = logger;
 		}
