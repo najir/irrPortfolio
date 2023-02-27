@@ -4,11 +4,11 @@ namespace irrbackend.Controllers
 {
 	[ApiController]
 	[Route("[controller]")]
-	public class DbController : ControllerBase
+	public class userController : ControllerBase
 	{
-		private readonly ILogger<DbController> _logger;
+		private readonly ILogger<userController> _logger;
 
-		public DbController(ILogger<DbController> logger)
+		public userController(ILogger<userController> logger)
 		{
 			_logger = logger;
 		}
@@ -16,12 +16,12 @@ namespace irrbackend.Controllers
 		[HttpPost]
 		public IActionResult PostData(string id)
 		{
-			return Content($"db Post data called with {id}");
+			return Content($"user Post data called with {id}");
 		}
 		[HttpGet("{id}")]
 		public IActionResult GetData(string id)
 		{
-			return Content($"db Get data called with {id}");
+			return Content($"user Get data called with {id}");
 		}
 
 	}

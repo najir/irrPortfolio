@@ -23,9 +23,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=home}/{action=Index}/");
-app.MapControllerRoute(
-    name: "db",
-    pattern: "db/{action=read}/{id?}");
 
 app.MapFallbackToFile("index.html");
 

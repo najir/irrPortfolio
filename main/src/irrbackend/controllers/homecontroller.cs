@@ -13,7 +13,7 @@ namespace irrbackend.Controllers
 		}
 		public IActionResult Home()
 		{
-			return View(); //Replace with equivalent
+			return Content("Home action return in home controller");
 		}
 
 	}
