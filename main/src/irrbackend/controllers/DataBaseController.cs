@@ -4,17 +4,17 @@ namespace irrbackend.Controllers
 {
 	[ApiController]
 	[Route("[controller]")]
-	public class DbController : ControllerBase
+	public class databasecontroller : ControllerBase
 	{
-		private readonly ILogger<DbController> _logger;
+		private readonly ILogger<databasecontroller> _logger;
 
-		public DbController(ILogger<DbController> logger)
+		public databasecontroller(ILogger<databasecontroller> logger)
 		{
 			_logger = logger;
 		}
 
 		[HttpPost]
-		public IActionResult PostData(string id)
+		public IActionResult PostData(int id)
 		{
 			return Content($"db Post data called with {id}");
 		}

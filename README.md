@@ -23,5 +23,8 @@ Specific details will be written here as the project progresses:
 	OS: Windows
 	IDE: Visual Studio Community 2022   
 	Language: C# and Javascript   
-	Dependencies:   
+	Dependencies: 
+	ASP.NET 7.0
+		XUnit
+		Moq
 	N/A

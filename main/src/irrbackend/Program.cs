@@ -6,6 +6,11 @@
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdministratorRole",
+        policy => policy.RequireRole("Administrator"));
+});
 
 var app = builder.Build();
 

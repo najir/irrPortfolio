@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace irrbackend.Controllers
@@ -14,14 +15,24 @@ namespace irrbackend.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostData(string id)
+        public IActionResult PostData(int id)
         {
             return Content($"blog Post data called with {id}");
         }
         [HttpGet("{id}")]
-        public IActionResult GetData(string id)
+        public IActionResult GetData(int id)
         {
             return Content($"blog Get data called with {id}");
+        }
+        [Authorize]
+        public IActionResult PostComment()
+        {
+
+        }
+        [Authorize(Policy = "RequireAdministratorRole")]
+        public IActionResult PostBlog()
+        {
+
         }
 
     }

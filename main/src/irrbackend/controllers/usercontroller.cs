@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace irrbackend.Controllers
@@ -23,6 +24,25 @@ namespace irrbackend.Controllers
 		{
 			return Content($"user Get data called with {id}");
 		}
+		public IActionResult LoginUser()
+		{
+
+		}
+		[Authorize]
+		public IActionResult LogoutUser()
+		{
+
+		}
+		public IActionResult ForgotPassword()
+		{
+
+		}
+		[Authorize(Policy = "RequireAdministratorRole")]
+		public IActionResult SetRole()
+		{
+
+		}
+
 
 	}
 
