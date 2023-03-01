@@ -1,3 +1,4 @@
+using irrbackend.DAL;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,10 +9,12 @@ namespace irrbackend.Controllers
     public class blogController : ControllerBase
     {
         private readonly ILogger<blogController> _logger;
+        private readonly WebDbContext _context;
 
-        public blogController(ILogger<blogController> logger)
+        public blogController(ILogger<blogController> logger, WebDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         [HttpPost]

@@ -27,4 +27,7 @@ Specific details will be written here as the project progresses:
 	ASP.NET 7.0
 		XUnit
 		Moq
+		DependencyInjection
+		EntityFrameworkCore
+		EFC SQLServer
 	N/A
