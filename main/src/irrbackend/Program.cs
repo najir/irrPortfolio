@@ -27,7 +27,7 @@ var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/home/error");
+    app.UseExceptionHandler("/error");
     app.UseHsts();
 
     app.UseSwagger();

@@ -2,6 +2,7 @@ using irrbackend.DAL;
 using irrbackend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace irrbackend.Controllers
 {
@@ -28,13 +29,49 @@ namespace irrbackend.Controllers
 
 		}
 		[HttpGet("{id}")]
-		public IActionResult GetBook(int id)
+		public async Task<IActionResult> GetBook(int id)
 		{
-
+			BookList? book = null;
+			try
+			{
+				book = await _context.Books
+                .SingleAsync(b => b.Id == id);
+            }
+			catch(Exception ex)
+			{
+				_logger.LogError($"An Error has occured : {ex}");
+			}
+			if(book is null)
+			{
+				return NotFound("Book was not found");
+			}
+			else
+			{
+				return Ok(book);
+			}
 		}
         [HttpGet]
-        public IActionResult GetBook()
+        public async Task<IActionResult> GetBook()
         {
+			BookList[] books;
+			try
+			{
+				books = await _context.Books
+					.ToArrayAsync();
+			}
+			catch(Exception ex)
+			{
+				_logger.LogError($"An Error has occurd : {ex}");
+			}
+			if(!books.Any())
+			{
+				return NotFound("No Books were found");
+			}
+			else
+			{
+				return Ok(books);
+			}
+
             return Content("booklist Get data called with ");
         }
 

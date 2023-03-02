@@ -16,6 +16,10 @@ namespace irrbackend.Controllers
 		{
 			return Content("Home action return in home controller");
 		}
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Route("/error")]
+		public IActionResult HandleError() =>
+			Problem();
 		public IActionResult GitProgressPull()
 		{
 			return Content("GitDataPull called");
