@@ -11,5 +11,6 @@ public class WebDbContext : DbContext
 	}
     public DbSet<Blog> Blogs { get; set; }
     public DbSet<UserList> Users { get; set; }
+	public DbSet<BookList> Books { get; set; }
 
 }

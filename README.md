@@ -30,4 +30,5 @@ Specific details will be written here as the project progresses:
 		DependencyInjection
 		EntityFrameworkCore
 		EFC SQLServer
+		Swashbuckle aspnetcore(Swagger OpenAPI UI)
 	N/A

@@ -5,13 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace irrbackend.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class blogController : ControllerBase
+    [Route("api/[controller]")]
+    public class BlogController : ControllerBase
     {
-        private readonly ILogger<blogController> _logger;
+        private readonly ILogger<BlogController> _logger;
         private readonly WebDbContext _context;
 
-        public blogController(ILogger<blogController> logger, WebDbContext context)
+        public BlogController(ILogger<BlogController> logger, WebDbContext context)
         {
             _logger = logger;
             _context = context;
@@ -34,6 +34,16 @@ namespace irrbackend.Controllers
         }
         [Authorize(Policy = "RequireAdministratorRole")]
         public IActionResult PostBlog()
+        {
+
+        }
+        [HttpGet("{id}")]
+        public IActionResult GetBlog()
+        {
+
+        }
+        [HttpGet]
+        public IActionResult GetComments()
         {
 
         }

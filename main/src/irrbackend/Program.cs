@@ -11,13 +11,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<WebDbContext>(options => 
 options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication("def")
+    .AddCookie("def");
+
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("RequireAdministratorRole",
         policy => policy.RequireRole("Administrator"));
 });
-
+builder.Services.AddControllersWithViews();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -25,12 +29,15 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/home/error");
     app.UseHsts();
+
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
+app.UseAuthorization();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

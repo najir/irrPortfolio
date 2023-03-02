@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace irrbackend.Controllers
 {
-	[Route("[controller]")]
+	[Route("api/[controller]")]
 	public class HomeController : ControllerBase
 	{
 		private readonly ILogger<HomeController> _logger;
@@ -16,8 +16,21 @@ namespace irrbackend.Controllers
 		{
 			return Content("Home action return in home controller");
 		}
-
-	}
+		public IActionResult GitProgressPull()
+		{
+			return Content("GitDataPull called");
+		}
+		[HttpGet]
+        public IActionResult GitProjectPull()
+        {
+            return Content("GitDataPull called");
+        }
+		[HttpGet("{id}")]
+        public IActionResult GitProjectPull(int id)
+        {
+            return Content("GitDataPull called");
+        }
+    }
 
 
 
