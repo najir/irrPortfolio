@@ -12,9 +12,9 @@ namespace irrbackend.tests
 		public bool Blog_SendStandard_Test()
 		{
 			//This simply tests that my controller and action works at any level
-			var _mockLogger = new Mock<ILogger<blogController>>();
-			ILogger<blogController> logger = _mockLogger.Object;
-			var blogController = new blogController(logger);
+			var _mockLogger = new Mock<ILogger<BlogController>>();
+			ILogger<BlogController> logger = _mockLogger.Object;
+			var blogController = new BlogController(logger);
 
 			int id = 1;
 			string answer = $"blog Post data called with {id}";

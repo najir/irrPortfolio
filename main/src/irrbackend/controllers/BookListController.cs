@@ -19,14 +19,15 @@ namespace irrbackend.Controllers
 			_context = context;
 		}
         [Authorize(Policy = "RequireAdministratorRole")]
-		[HttpPost("{id}")]
-		public IActionResult PostBook(long id, BookList bookList)
+		[HttpPost]
+		public async Task<IActionResult> PostBook(BookList bookList)
 		{
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
-
+			await _context.Books.AddAsync(bookList);
+			return CreatedAtAction(nameof(GetBook), new { id = bookList.Id }, bookList);
 		}
 		[HttpGet("{id}")]
 		public async Task<IActionResult> GetBook(int id)
@@ -71,10 +72,7 @@ namespace irrbackend.Controllers
 			{
 				return Ok(books);
 			}
-
-            return Content("booklist Get data called with ");
         }
-
     }
 
 

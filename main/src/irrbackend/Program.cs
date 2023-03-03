@@ -4,15 +4,21 @@
  * Back-End web server for irrportfolio website
  ****************************************/
 using irrbackend.DAL;
+using irrbackend.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<WebDbContext>(options => 
 options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
 
-builder.Services.AddAuthentication("def")
-    .AddCookie("def");
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<WebDbContext>();
+builder.Services.AddIdentityServer()
+    .AddApiAuthorization<ApplicationUser, UserDbContext>();
+builder.Services.AddAuthentication()
+    .AddIdentityServerJwt();
 
 builder.Services.AddAuthorization(options =>
 {
@@ -34,7 +40,10 @@ if (!app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthentication();
+app.UseIdentityServer();
 app.UseAuthorization();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

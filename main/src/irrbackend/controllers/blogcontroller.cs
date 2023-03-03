@@ -1,6 +1,8 @@
 using irrbackend.DAL;
+using irrbackend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace irrbackend.Controllers
 {
@@ -16,38 +18,61 @@ namespace irrbackend.Controllers
             _logger = logger;
             _context = context;
         }
-
-        [HttpPost]
-        public IActionResult PostData(int id)
-        {
-            return Content($"blog Post data called with {id}");
-        }
-        [HttpGet("{id}")]
-        public IActionResult GetData(int id)
-        {
-            return Content($"blog Get data called with {id}");
-        }
-        [Authorize]
-        public IActionResult PostComment()
-        {
-
-        }
         [Authorize(Policy = "RequireAdministratorRole")]
-        public IActionResult PostBlog()
+        [HttpPost]
+        public async Task<IActionResult> PostBlog(Blog blog)
         {
-
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            await _context.Blogs.AddAsync(blog);
+            return CreatedAtAction(nameof(GetBlog), new { id = blog.Id }, blog);
         }
         [HttpGet("{id}")]
-        public IActionResult GetBlog()
+        public async Task<IActionResult> GetBlog(int id)
         {
-
+            Blog? blog = null;
+            try
+            {
+                blog = await _context.Blogs
+                .SingleAsync(b => b.Id == id);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An Error has occured : {ex}");
+            }
+            if (blog is null)
+            {
+                return NotFound("Book was not found");
+            }
+            else
+            {
+                return Ok(blog);
+            }
         }
         [HttpGet]
-        public IActionResult GetComments()
+        public async Task<IActionResult> GetBlog()
         {
-
+            Blog[] blogs;
+            try
+            {
+                blogs = await _context.Blogs
+                    .ToArrayAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An Error has occurd : {ex}");
+            }
+            if (!blogs.Any())
+            {
+                return NotFound("No Books were found");
+            }
+            else
+            {
+                return Ok(blogs);
+            }
         }
-
     }
 
 
