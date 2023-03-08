@@ -1,4 +1,4 @@
-import "./styles/git";
+import "./styles/git.css";
 import React from 'react';
 
 class GitFetch extends React.Component{

@@ -8,8 +8,8 @@ namespace irrbackend.DAL
 {
 	public class UserDbContext : ApiAuthorizationDbContext<ApplicationUser>
 	{
-		public UserDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreItems)
-			: base(options, operationalStoreItems)
+		public UserDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
+			: base(options, operationalStoreOptions)
 		{
 
 		}

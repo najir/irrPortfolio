@@ -1,4 +1,4 @@
-export const ApplicationName = 'Project1';
+export const ApplicationName = 'irrbackend';
 
 export const QueryParameterNames = {
   ReturnUrl: 'returnUrl',

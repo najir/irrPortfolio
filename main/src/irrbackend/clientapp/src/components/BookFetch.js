@@ -1,4 +1,4 @@
-import "./styles/book";
+import "./styles/book.css";
 import React from 'react';
 
 class BookFetch extends React.Component{

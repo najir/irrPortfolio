@@ -54,7 +54,7 @@ namespace irrbackend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetBlog()
         {
-            Blog[] blogs;
+            Blog[] blogs = { };
             try
             {
                 blogs = await _context.Blogs

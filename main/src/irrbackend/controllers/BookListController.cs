@@ -54,7 +54,7 @@ namespace irrbackend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetBook()
         {
-			BookList[] books;
+			BookList[] books = { };
 			try
 			{
 				books = await _context.Books

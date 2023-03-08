@@ -1,9 +1,10 @@
-import "./styles/about";
+import "./styles/about.css";
 import React from 'react';
 
 class AboutPage extends React.Component{
     constructor(props){
         super(props);
+        this.readmore = true;
         this.aboutText = "Growing up around the age of 12 I spent a lot of time developing games. Starting from RPG maker with Decision Tree"
         this.aboutText += "eventing, all the way to UE4 Blueprints with my own artwork in Zbrush, Maya, and Blender. Once I got to college I "
         this.aboutText += "decided to move my focus towards softare development and computer programming. Since then I have spent the last"
@@ -13,8 +14,6 @@ class AboutPage extends React.Component{
         this.aboutText += "work into."
     }
     render(){
-        const [isReadMore, setIsReadMore] = useState(true);
-        const toggleReadMore = () => {setIsReadMore(!isReadMore)};
         return(
             <div className="about">
                 <h1>About Me</h1>
@@ -23,8 +22,8 @@ class AboutPage extends React.Component{
                 <h4>Actually "About Me" this time:</h4>
                 <p>{this.aboutText}</p>
                 <p>
-                    {isReadMore ? this.aboutText.slice(0, 25) : this.aboutText}
-                    <span onClick={toggleReadMore}>{isReadMore?'...Read More' : '...Show Less'}</span>
+                    {this.readmore ? this.aboutText.slice(0, 25) : this.aboutText}
+                    <span onClick={!this.readmore}>{this.readmore ? '...Read More' : '...Show Less'}</span>
                 </p>
 
                 <ul>

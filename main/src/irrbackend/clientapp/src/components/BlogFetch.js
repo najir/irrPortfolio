@@ -1,14 +1,14 @@
-import "./styles/project.css";
+import "./styles/blogfetch.css";
 import React from 'react';
 
-class ProjectFetch extends React.Component{
+class BlogFetch extends React.Component{
     render() {
         return (
             <div>
-
+                
             </div>
         )
     }
 }
 
-export default ProjectFetch
+export default BlogFetch

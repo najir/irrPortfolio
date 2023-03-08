@@ -13,10 +13,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<WebDbContext>(options => 
 options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
 
+builder.Services.AddDbContext<UserDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
+
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<WebDbContext>();
+    .AddEntityFrameworkStores<UserDbContext>();
+
 builder.Services.AddIdentityServer()
     .AddApiAuthorization<ApplicationUser, UserDbContext>();
+
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
 
@@ -39,14 +44,13 @@ if (!app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
 
 app.UseAuthentication();
 app.UseIdentityServer();
 app.UseAuthorization();
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
 
 app.MapControllerRoute(
     name: "default",

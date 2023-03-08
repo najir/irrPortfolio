@@ -6,35 +6,35 @@ import { ApplicationPaths, LoginActions, LogoutActions } from './ApiAuthorizatio
 const ApiAuthorizationRoutes = [
   {
     path: ApplicationPaths.Login,
-    element: loginAction(LoginActions.Login)
+    page: loginAction(LoginActions.Login)
   },
   {
     path: ApplicationPaths.LoginFailed,
-    element: loginAction(LoginActions.LoginFailed)
+    page: loginAction(LoginActions.LoginFailed)
   },
   {
     path: ApplicationPaths.LoginCallback,
-    element: loginAction(LoginActions.LoginCallback)
+    page: loginAction(LoginActions.LoginCallback)
   },
   {
     path: ApplicationPaths.Profile,
-    element: loginAction(LoginActions.Profile)
+    page: loginAction(LoginActions.Profile)
   },
   {
     path: ApplicationPaths.Register,
-    element: loginAction(LoginActions.Register)
+    page: loginAction(LoginActions.Register)
   },
   {
     path: ApplicationPaths.LogOut,
-    element: logoutAction(LogoutActions.Logout)
+    page: logoutAction(LogoutActions.Logout)
   },
   {
     path: ApplicationPaths.LogOutCallback,
-    element: logoutAction(LogoutActions.LogoutCallback)
+    page: logoutAction(LogoutActions.LogoutCallback)
   },
   {
     path: ApplicationPaths.LoggedOut,
-    element: logoutAction(LogoutActions.LoggedOut)
+    page: logoutAction(LogoutActions.LoggedOut)
   }
 ];
 

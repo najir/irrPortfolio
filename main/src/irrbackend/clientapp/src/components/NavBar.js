@@ -2,7 +2,6 @@ import "./styles/navbar.css";
 import React from 'react';
 import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import ClientRoutes from "../utils/ClientRoutes";
 import { LoginMenu } from './api-authorization/LoginMenu';
 
 
@@ -26,7 +25,7 @@ class NavBar extends React.Component{
 
     render(){
         return(
-            <NavBar>
+            <Navbar>
               <NavbarBrand tag={Link} to="/">IrrPortfolio</NavbarBrand>
               <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
               <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
@@ -47,7 +46,7 @@ class NavBar extends React.Component{
                     </LoginMenu>
                 </ul>
           </Collapse>
-            </NavBar>
+            </Navbar>
         )
     }
 }

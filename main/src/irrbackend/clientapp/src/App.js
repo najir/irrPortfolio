@@ -1,5 +1,9 @@
 import './App.css';
 import NavBar from "./components/NavBar"
+import { Route, Routes } from 'react-router-dom';
+import ClientRoutes from "./utils/ClientRoutes"
+import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
+
 
 
 function App() {
@@ -9,10 +13,12 @@ function App() {
         <NavBar />
       </header>
       <div className = "mainBody">
-        {ClientRoutes.map((route, index) => {
-            const { page, requireAuth, ...rest } = route;
-            return <Route key={index} {...rest} page={ requireAuth ? <AuthorizeRoute {...rest} page={page} /> : page} />
-        })}
+        <Routes>
+          {ClientRoutes.map((route, index) => {
+              const { page, requireAuth, ...rest } = route;
+              return <Route key={index} {...rest} element={ requireAuth ? <AuthorizeRoute {...rest} element={page} /> : page} />
+          })}
+        </Routes>
       </div>
     </div>
   );
