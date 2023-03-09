@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
 import NavBar from "./components/NavBar"
 import { Route, Routes } from 'react-router-dom';
@@ -9,7 +11,7 @@ import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header>
         <NavBar />
       </header>
       <div className = "mainBody">

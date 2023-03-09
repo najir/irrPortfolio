@@ -1,0 +1,50 @@
+div {
+    text-align: left;
+}
+h1 {
+    text-align: center;
+}
+hr {
+    margin: auto;
+    display: block;
+    width: 75%;
+    height: 2px;
+    margin-bottom: 30px;
+    background-color: white;  
+    border-color: white;
+    color: white;  
+}
+.detailsBox {
+    background-color: #333;
+    border: 2px solid black;
+    margin: 15px;
+    padding: 15px;
+}
+.bookandblog {
+    display: flex;
+    flex-direction: row;
+}
+.info{
+    padding: 50px 0 50px 0;
+    
+    background-color: rgba(0, 0, 0, 0.317);
+}
+.contactbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin: 25px 50px 25px 50px;
+    padding: 10px;
+}
+#contactlink{
+    display: block;
+    width: max-content;
+    text-decoration: none;
+    color: inherit;
+    margin-right: 5px;
+
+}
+#linkinfo{
+    display: block;
+    list-style-type: none;
+}
