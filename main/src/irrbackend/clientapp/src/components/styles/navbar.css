@@ -1,15 +1,17 @@
-.navbar-toggleable {
-    color: white;
-}
-
 .nav {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
     display: flex;
-    background-color: black;
+    background-color: none;
     flex-direction: row;
     margin-bottom: 15px;
     justify-content: space-between;
     align-items: stretch;
-
+    padding: 0;
+    margin: 0;
+    transition: .32s ease-in-out;
 }
 
 .nav ul{
@@ -24,14 +26,21 @@
 
 .nav a:not(#brand) {
     text-decoration: none;
-    margin: 5px 10px 5px 10px;
+    margin: 5px 10px 10px 10px;
     padding: 5px 10px 5px 10px;
-    background-color: #222;
-    border-bottom: 2px solid white;
 }
 
 .nav li:hover {
     background-color: #444;
+}
+
+.active-link{
+    color: #223e61;
+}
+
+#scrolled{
+    background-color: rgba(0, 0, 0);
+    transition: .32s ease-in-out;
 }
 
 #brand{

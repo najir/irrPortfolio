@@ -3,6 +3,7 @@ import HomePage from '../pages/Home';
 import AboutPage from '../pages/About';
 import BlogPage from '../pages/Blog';
 import PortfolioPage from '../pages/Portfolio';
+import IrrResume from '../components/irrResume/App';
 
 const ClientRoutes = [
     {
@@ -20,6 +21,10 @@ const ClientRoutes = [
     {
         path: '/portfolio',
         page: <PortfolioPage />
+    },
+    {
+        path: '/resume',
+        page: <IrrResume />
     },
     ...ApiAuthorzationRoutes
 ]

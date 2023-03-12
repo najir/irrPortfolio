@@ -12,6 +12,13 @@ class AboutPage extends React.Component{
         this.aboutText += "github, my recent focus has been to spend less time on fundamentals and more time broadening my toolset of "
         this.aboutText += "frameworks and popular tools. I hope to expand my personal knowledge base until I find a Niche I can put my lifes"
         this.aboutText += "work into."
+
+        this.contactList = {
+            email: "irrperks@gmail.com",
+            phone: "(541)321-9148",
+            linkedin: "______",
+            github: "______"
+        }
     }
     render(){
         return(
@@ -19,27 +26,19 @@ class AboutPage extends React.Component{
                 <h1>About Me</h1>
                 <p>Welcome to my portfolio website. This wepage is here to provide Contact Info ______ and a little about myself</p>
 
+                <h3>Get ahold of me here:</h3>
+                <div className="contact-info">
+                    {this.contactList.map((value, content)=>{
+                        <h6 className="contact-item">{value}: {content}</h6>
+                    })};
+                </div>
+
                 <h4>Actually "About Me" this time:</h4>
                 <p>{this.aboutText}</p>
                 <p>
                     {this.readmore ? this.aboutText.slice(0, 25) : this.aboutText}
                     <span onClick={!this.readmore}>{this.readmore ? '...Read More' : '...Show Less'}</span>
                 </p>
-
-                <ul>
-                    <li>
-                        <h6>Email: irrperks@gmail.com</h6>
-                    </li>
-                    <li>
-                        <h6>Phone: (541)321-9148</h6>
-                    </li>
-                    <li>
-                        <h6>Linked-In: _________</h6>
-                    </li>
-                    <li>
-                        <h6>GitHub: __________</h6>
-                    </li>
-                </ul>
             </div>
         )
     }

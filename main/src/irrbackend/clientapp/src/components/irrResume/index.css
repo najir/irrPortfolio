@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI",-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.initial{
+  all: initial;
+  font-family: 'Roboto';
+}
+.resume{
+  color: black;
+  background-color: beige;
+  border: 1px solid black;
+  margin: 25px auto 25px auto;
+  padding: 25px 35px 25px 35px;
+  width: 77%;
+}
+.flex-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+.flex-other{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+.flex-header{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: left;
+  line-height: 1;
+}
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.flex-user{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+#interest, #courses, #keyword{
+  font-size: 9px;
+  border-left: 2px solid black;
+  margin: 1px 1px 1px 1px;
+  padding: 6px 2px 6px 2px;
+  line-height: 0;
+  text-align: left;
+  white-space: nowrap;
+  max-height: 5px;
+}
+#keyword{
+  border: 1px solid black;
+  background-color: rgb(164,189,186);
+  text-align: center;
+}
+#interest{
+  width: 75px;
+}
+h1, h2, h3, h4, h5, p{
+  line-height: 1;
+  margin: 0 0 0 0;
+  padding: 0 0 10px 0;
+}
+h1, h2{
+  padding: 0 0 25px 0;
+}
+h3{
+  padding: 0 0 10px 0;
+}
+h6{
+  line-height: 0;
+  padding: 0 0 0 0;
+  margin: -2px 0 8px 0;
+}
+hr{
+border: 1.33px solid black;
+margin: 0 0 5px 0;
+width: 125px;
+}
+#leftBox{
+  text-align: left;
+  float: left;
+  flex: 1 0 0;
+}
+#mainBox{
+  text-align: left;
+  margin: 0 0 0 10px;
+  flex: 4 0 0;
+}
+#experiencelevel{
+  height: 8px;  
+}
+#skillname{
+  line-height: 1;
+  padding: 0 0 0 0;
+  margin: 25px 0 -5px 0;
+}
+#projectwrapper{
+  margin: -8px 0 15px 0;
+}
+#title{
+  color: rgb(64, 88, 85);
+  margin: 15px 0 0px -12px;
+  padding: 0 0 0 2px;
+  border-left: 3px solid black;
+}
+#subtitle{
+  margin: 25px 0 10px 0;
+}
+#interestname{
+  line-height: 1;
+  padding: 0 0 0 0;
+  margin: 15px 0 25px 0;
+}
+#maintitle{
+  margin: 0px 0 -15px 0;
+}
+#profile{
+  line-height: 1;
+  flex-shrink: 10;
+  margin: 0 0 10px 0px;
+  padding: 0px 1px 0px 2px;
+  border-left: 3px solid black;
+}
+#socials{
+  margin: 45px 0 0 0;
+}
+#educationname{
+  margin: 0px 0 20px 0;
+}
+#experiencetitle{
+  margin: 0 0 -8px 0;
+}
+
+
+@media print{
+  .resume{
+    background-color: white;
+    border: none;
+    margin: 0px 0 0px 0;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+  }
+  #leftBox{
+    text-align: left;
+    float: left;
+    flex: 2 0 0;
+  }
+  #experiencetitle{
+    margin: 5px 0 -8px 0;
+  }
+}

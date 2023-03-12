@@ -10,24 +10,16 @@ hr {
     width: 75%;
     height: 2px;
     margin-bottom: 30px;
-    background-color: white;  
-    border-color: white;
-    color: white;  
-}
-.detailsBox {
-    background-color: #333;
-    border: 2px solid black;
-    margin: 15px;
-    padding: 15px;
+    background-color: rgb(val(--theme1-border));  
+    border-color: rgb(val(--theme1-border));
+    color: rgb(val(--theme1-border));  
 }
 .bookandblog {
     display: flex;
     flex-direction: row;
 }
-.info{
-    padding: 50px 0 50px 0;
-    
-    background-color: rgba(0, 0, 0, 0.317);
+.bookandblogwrapper{
+    background-color:rgba(18, 18, 18, 0.336);
 }
 .contactbar{
     display: flex;
@@ -48,3 +40,16 @@ hr {
     display: block;
     list-style-type: none;
 }
+#titlecard{
+    margin: 100px 12px 0px 0;
+    filter: drop-shadow(0 0 5px rgb(var(--theme1-other)));
+} 
+.blink {
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }

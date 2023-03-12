@@ -1,0 +1,11 @@
+.transition{
+    animation: slidein 2s ease-in;
+}
+@keyframes slidein{
+    0%, 15%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

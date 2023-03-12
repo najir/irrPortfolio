@@ -1,0 +1,32 @@
+.data-wrapper{
+    display: flex;
+    flex-flow: column wrap;
+}
+.data-box{
+    display: grid;
+    width: fit-content;
+    grid-template-columns: repeat(7, 15px);
+    grid-auto-rows: repeat(5, 15px);
+    gap: 5px 5px;
+    justify-content: start;
+    border-top: 3px solid rgb(var(--theme1-border));
+}
+.data-object{
+    background-color: rgb(var(--theme1-other));
+    margin: 0px;
+    padding: 0px;
+    height: 15px;
+    width: 15px;
+}
+
+.transition{
+    animation: slidein 2s ease-in;
+}
+@keyframes slidein{
+    0%, 15%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

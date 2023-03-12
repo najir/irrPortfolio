@@ -1,0 +1,242 @@
+{
+  "basics": {
+    "name": "Isaac Perks",
+    "label": "Developer",
+    "email": "irrperks@gmail.com",
+    "phone": "(541)321-9148",
+    "url": "https://github.com/najir",
+    "summary": "This is a test summary of a bunch of things, I'm unsure of the exact formating or specifications to occur from this particular field.\nThis is a new line and paragraph. Yet there is no way to actually break the line within my editor. So I'm stuck writing/nan extremely long line of text that is disgusting to understand and foucs on, but shouldn't be a huge issue for resume factoring I assume.",
+    "location": {
+      "address": "975 Charnelton Street",
+      "postalCode": "OR, 97401",
+      "city": "Eugene",
+      "countryCode": "US",
+      "region": "Oregon"
+    },
+    "profiles": [{
+      "network": "Linked-In",
+      "username": "Isaac Perks",
+      "url": "twitter.com/john"
+    }]
+  },
+  "education": [{
+    "institution": "University Of Oregon",
+    "area": "Computer Science",
+    "studyType": "Bachelor",
+    "startDate": "September, 2019",
+    "endDate": "October, 2021",
+    "courses": [
+      "CIS 210-212",
+      "CIS 311 DataStruc",
+      "CIS 312 Algo",
+      "CIS 313 Sys Ops",
+      "CIS 321 Web Dev",
+      "Data Structures I II",
+      "Calc I II III",
+      "Psych 101-103, 201-203, 309, 311, 313",
+      " "
+    ]
+  },
+  {
+    "institution": "Lane Community College",
+    "area": "Computer Science(Transfer)",
+    "studyType": "Bachelor",
+    "startDate": "September, 2017",
+    "endDate": "June, 2019",
+    "courses": [
+    ]
+  }],
+  "certificates": [{
+    "name": "Certificate",
+    "date": "2021-11-07",
+    "issuer": "Company",
+    "url": "https://certificate.com"
+  }],
+  "skills": [{
+    "name": "Web Development",
+    "level": "3",
+    "keywords": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "REACT",
+      "VUE",
+      "NODE",
+      "Routes"
+    ]
+  },
+  {
+    "name": "Back-End Development",
+    "level": "4",
+    "keywords": [
+      "ASP .NET 7.0",
+      "C#",
+      "JavaScript",
+      "MVC",
+      "Entity Framework",
+      "NODE.js",
+      "Flask",
+      "SQL",
+      "SQLite3",
+      "PostGre SQL",
+      "AWS RDS/EC2"
+    ]
+  },
+  {
+    "name": "Desktop Application Development",
+    "level": "3",
+    "keywords": [
+      "QT Framework",
+      "C++",
+      "Python",
+      "QT Designer",
+      "TKBuilder",
+      "SQLite3"
+    ]
+},{
+  "name": "Languages and Enviroments",
+  "level": "",
+  "keywords": [
+    "C++",
+    "C#",
+    "Python",
+    "JavaScript",
+    "HTML/CSS",
+    "VisualStudio",
+    "VSCode",
+    "PyCharm",
+    "Git",
+    "VIM",
+    "BASH"
+  ]
+}],
+  "interests": [{
+    "name": "Video Game Development",
+    "keywords": [
+      "Unreal Engine 4",
+      "UE4 BluePrints",
+      "RPG Maker",
+      "GameMaker"
+    ]
+  },
+  {
+    "name": "3D modeling/Texturing",
+    "keywords": [
+      "Blender",
+      "Maya",
+      "Substance Painter",
+      "ZBrush",
+      "Krita"
+    ]
+  },
+  {
+    "name": "Local Politics",
+    "keywords": [
+    ]
+  },
+  {
+    "name": "Psychology & Philosophy",
+    "keywords": [
+    ]
+  }],
+  "references": [{
+    "name": "Jane Doe",
+    "reference": "Reference…"
+  }],
+  "projects": [{
+    "name": "FrontierZ Launcher",
+    "description": "Desktop application to link with existing game launcher system. QT Framework front end via Pyside6. Pulls server images, banners, install data from server owners endpoint. Also pulls RSS feed to host news/updates for server owners to user. Users can also add personal servers. Data hosted locally via SQLite3 implementation.",
+    "keywords": [
+      "QT Framework",
+      "Python",
+      "SQLITE 3",
+      "PySide 6"
+    ],
+    "date": "Feburary 2023",
+    "url": "https://project.com/",
+    "entity": "Entity",
+    "type": "application"
+  },
+  {
+    "name": "IrrPortfolio",
+    "description": "ASP.NET Core MVC server hosting React SPA. User Auth/Identification via Duende Identity 4. Blog implementation via ____ to SQL database. Book review system stored in database with API calls to server. Mainpage pull github API to visualize personal data via ____ react library.",
+    "keywords": [
+      "ASP.NET 7.0",
+      "MVC",
+      "Entity Framework",
+      "SQL",
+      "LINQ",
+      "REACT.js",
+      "NODE.js",
+      "Duende"
+    ],
+    "date": "Feburary/March 2023",
+    "url": "https://project.com/",
+    "entity": "Entity",
+    "type": "application"
+  },
+  {
+    "name": "RustPSM",
+    "description": "Vue based SPA website running on Node.js routes. Creates pages based on SteamAPI userdata calls, create an accessable store of data on a mongoDB database.",
+    "keywords": [
+      "Node Route?",
+      "MongoDB",
+      "???",
+      "Vue.js",
+      "???",
+      "NODE.JS"
+    ],
+    "date": "May 2022",
+    "url": "https://project.com/",
+    "entity": "Entity",
+    "type": "application"
+  },
+  {
+    "name": "IrrResume",
+    "description": "This resume is a JSONSchema wrapped by a REACT.js webpage that is then converted to PDF if needed by ___. Integrated into my portfolio website.",
+    "keywords": [
+      "React.js",
+      "Jsonresume Schema",
+      "VSCode",
+      "Javascript"
+    ],
+    "date": "March 2023",
+    "url": "https://project.com/",
+    "entity": "Entity",
+    "type": "application"
+  }],
+  "work": [{
+    "name": "Campus Advantage",
+    "position": "Leasing Agent",
+    "startDate": "2019-01-19",
+    "endDate": "2023-03-14",
+    "summary": "Followed up with prospects via phone, email, and personal tours to close leases. Managed, scheduled, and hosted events for current residents. A resource for current residents to help with maintenance/emergency calls, questions/concerns, and mediate issues. Participated in and hosted advertising, tabeling, and other outreach for prospective clients.",
+    "highlights": [
+      "Hundreds of Full Year Leases Completed",
+      "Large Scale Marketing & Event Hosting",
+      "YTD Lease % increase upto 20% each year"
+    ]
+  }],
+  "volunteer": [{
+    "organization": "Gods StoreHouse",
+    "position": "Volunteer",
+    "date": "May, 2016",
+    "summary": "Description…"
+  },
+  {
+    "organization": "Harrisburg City Landscape",
+    "position": "Volunteer",
+    "date": "May, 2017",
+    "summary": "Description…"
+  }],
+  "other": [{
+    "name" : "WCStudios",
+    "description" : "Ran a small gamedev studio running rpgmaker, mainly making small mod solutions for other games",
+    "date" : "~2014-2016"
+  },
+  {
+    "name" : "CPA Shadow",
+    "description" : "Shadowed a CPA. Participating in meetings, completed bookkeeping tasks, and reviewed a business's finances",
+    "date" : "June, 2017"
+  }]
+}
