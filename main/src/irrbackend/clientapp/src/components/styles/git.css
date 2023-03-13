@@ -1,8 +1,19 @@
-.data-wrapper{
+:root{
+    --color1: 255, 0, 0;
+    --color2: 0, 255, 0;
+    --color3: 0, 0, 255;
+}
+.commit-list{
     display: flex;
     flex-flow: column wrap;
 }
-.data-box{
+.data-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 10%;
+}
+.commit-box{
     display: grid;
     width: fit-content;
     grid-template-columns: repeat(7, 15px);
@@ -18,9 +29,45 @@
     height: 15px;
     width: 15px;
 }
+.bar-graph{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    border-top: 3px solid rgb(var(--theme1-border));
+}
+.bar{
+    margin-bottom: 3px;
+    padding: 0;
+    height: 15px;
+    background-color: rgb(var(--theme1-other));
+}
+.pie-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.pie-chart{
+    height: 300px;
+    width: 300px;
+    border: 3px solid rgb(var(--theme1-border));
+    background-image: conic-gradient(
+            rgb(var(--color1)) 70deg, 
+            rgb(var(--color2)) 0 235deg, 
+            rgb(var(--color3)) 0);
+    border-radius: 50%;
+}
+.pie-data{
+    display: flex;
+    flex-direction: column;
+}
+.pie-data #colorbox{
+    margin-left: 5px;
+    height: 15px;
+    width: 15px;
+}
 
 .transition{
-    animation: slidein 2s ease-in;
+    animation: slidein 2s linear;
 }
 @keyframes slidein{
     0%, 15%{
