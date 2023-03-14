@@ -6,6 +6,12 @@ import ProjectFetch from "../components/ProjectFetch";
 import React from 'react';
 
 class HomePage extends React.Component {
+    constructor(props){
+      super(props)
+    }
+    componentDidMount(){
+      window.scrollTo(0, 0);
+    }
     render(){
         return (
             <div>

@@ -2,6 +2,12 @@ import "./styles/blog.css";
 import React from 'react';
 
 class BlogPage extends React.Component{
+    constructor(props){
+        super(props)
+    }
+    componentDidMount(){
+        window.scrollTo(0, 0);
+    }
     render() {
         return (
             <div className="blogpage">

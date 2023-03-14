@@ -7,6 +7,7 @@ class PortfolioFetch extends React.Component{
     super(props);
     this.projectData=[{
       title: "test project",
+      image: "linear-gradient(90deg, rgba(113,131,204,1), rgba(60,131,100,1))",
       language: "c++",
       startdate: "05/11/1999",
       lastupdate: "3/12/2022",
@@ -14,6 +15,7 @@ class PortfolioFetch extends React.Component{
       link: "https://www.github.com/najir"
     },{
         title: "test project1",
+        image: "linear-gradient(90deg, rgba(50,131,204,1), rgba(60,131,25,1))",
         language: "python",
         startdate: "05/11/1999",
         lastupdate: "3/12/2022",
@@ -21,6 +23,7 @@ class PortfolioFetch extends React.Component{
         link: "https://www.github.com/najir"
       },{
         title: "test project2",
+        image: "linear-gradient(90deg, rgba(113,50,204,1), rgba(60,200,100,1))",
         language: "javascript",
         startdate: "05/11/1999",
         lastupdate: "3/12/2022",
@@ -28,6 +31,22 @@ class PortfolioFetch extends React.Component{
         link: "https://www.github.com/najir"
       },{
         title: "test3",
+        image: "linear-gradient(90deg, rgba(113,131,204,1), rgba(60,131,100,1))",
+        language: "c#",
+        startdate: "05/11/1999",
+        lastupdate: "3/12/2022",
+        description: "This is a test description of my project and it's details. More information can be found at the source!!!",
+        link: "https://www.github.com/najir"
+      },{
+        title: "test122",
+        language: "c#",
+        startdate: "05/11/1999",
+        lastupdate: "3/12/2022",
+        description: "This is a test description of my project and it's details. More information can be found at the source!!!",
+        link: "https://www.github.com/najir"
+      },{
+        title: "test555",
+        image: "linear-gradient(90deg, rgba(113,131,100,1), rgba(30,131,100,1))",
         language: "c#",
         startdate: "05/11/1999",
         lastupdate: "3/12/2022",
@@ -73,14 +92,13 @@ class PortfolioFetch extends React.Component{
             <div ref={this.element} className={this.state.scroll ? "transition" : "opacity-0"}>
               <div className="portfolio-wrapper">
                 {this.projectData.map((data) =>{
-                    return <div className="portfolio-object">
+                    return <div className="portfolio-object" style={{backgroundImage: data.image}}>
                         <div className="project-section">
-                        <div className="d-flex justify-content-start align-items-center gap-1">
-                            <h2>{data.title}</h2>
-                            <p>{data.language} | {data.startdate} | Updated on {data.lastupdate}</p>
-                        </div>
+                        <h2>{data.title}</h2>
+                        <div className="project-image" style={{backgroundImage: data.image}} />
+                        <p>{data.language} | {data.startdate} | Updated on {data.lastupdate}</p>
                         <p>{data.description}</p>
-                        <p>View the source code at it's <a href={data.link}>GitHub</a> link</p>
+                        <p className="mt-5">View the source code at it's <a href={data.link}>GitHub</a> link</p>
                         </div>
                      </div>
                 })}
