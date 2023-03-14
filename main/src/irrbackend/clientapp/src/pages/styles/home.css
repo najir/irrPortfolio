@@ -10,9 +10,10 @@ hr {
     width: 75%;
     height: 2px;
     margin-bottom: 30px;
-    background-color: rgb(val(--theme1-border));  
-    border-color: rgb(val(--theme1-border));
-    color: rgb(val(--theme1-border));  
+    border-radius: 5%;;
+    background-color: rgb(var(--theme1-border));  
+    border-color: black;
+    color: rgb(var(--theme1-border));  
 }
 .bookandblog {
     display: flex;
@@ -44,12 +45,3 @@ hr {
     margin: 100px 12px 0px 0;
     filter: drop-shadow(0 0 5px rgb(var(--theme1-other)));
 } 
-.blink {
-    animation: blinker 1s linear infinite;
-  }
-  
-  @keyframes blinker {
-    50% {
-      opacity: 0;
-    }
-  }

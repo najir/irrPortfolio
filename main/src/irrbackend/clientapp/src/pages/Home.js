@@ -18,9 +18,11 @@ class HomePage extends React.Component {
                 <div id="pagefill"></div>
                 <h4 id="textboxmain" className="mt-5 ms-3">Welcome to my Portfolio!</h4>
                 <div id="greybox" className="w-75">
-                  <p className='mb-5'>This website serves as a way to visualize my portfolio, provide my resume, and post my personal blogs or research.</p>
-
-                  <p>Below is a quickview of my recent(30day) activity on github, recent projects & commits, along with my last reviewed book and personal blog post.</p>
+                  <p>As an aspiring developer this website displays information on everything from project details to git commit history</p>
+                  <br/>
+                  <p><a href="/about">About Me</a>: Personal details and contact information</p>
+                  <p><a href="/portfolio">Portfolio</a>: A list of my current and past projects</p>
+                  <p><a href="/blog">About Me</a>: Personal blog to write book summaries and research !Incomplete</p>
                 </div>
                 <div className="transition-in contactbar">
                   <a id="contactlink"href="/resume">Head over to my resume</a>
@@ -28,8 +30,9 @@ class HomePage extends React.Component {
                 </div>
               </div>
               <GitFetch />
-              <div id="pagefill"></div>
+              <ProjectFetch />
               <div className="bookandblogwrapper">
+                <div id="pagefill"></div>
                 <div className="bookandblog">
                     <BookFetch />
                     <BlogFetch />
@@ -37,8 +40,6 @@ class HomePage extends React.Component {
                 </div>
                 <div id="pagefill"></div>
               </div>
-              <ProjectFetch />
-              <div id="pagefill"></div>
             </div>
         );
     }    

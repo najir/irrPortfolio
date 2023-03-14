@@ -13,15 +13,20 @@ class GitFetch extends React.Component{
     ];
     this.languageData = [
       {name: "cpp",
-       amount: 5},
+       percent: "50%"},
        {name: "c#",
-       amount: 5},
+       percent: "60%"},
        {name: "python",
-       amount: 5}
+       percent: "80%"},
+       {name: "javascript",
+       percent: "100%"}
     ];
+    this.pieValue = "";
     this.element = createRef();
     this.onScroll = this.onScroll.bind(this);
     this.setScroll = this.setScroll.bind(this);
+    this.setPie = this.setPie.bind(this);
+
     this.state={
       scroll: false
     };
@@ -33,15 +38,21 @@ class GitFetch extends React.Component{
   }
   onScroll(){
     if(this.element.current){
-      var compPos = this.element.current.getBoundingClientRect().top;    
+      var compPos = this.element.current.getBoundingClientRect().top - 100;    
       var scrollPosition = window.scrollY + window.innerHeight;
       if (scrollPosition > compPos){
           this.setScroll(true);
-      } else {
-          this.setScroll(false);
+          window.removeEventListener('scroll', this.onScroll);
       }
     }
   
+  }
+  setPie(){
+    this.pieValue = "conic-gradient(rgb(var(--color0)) 0 ";
+    this.pieValue += this.languageData[0].percent +",";
+    this.pieValue += " rgb(var(--color1)) " + this.languageData[0].percent  + " " + this.languageData[1].percent + ","; 
+    this.pieValue += " rgb(var(--color2)) " + this.languageData[1].percent  + " " + this.languageData[2].percent + ",";
+    this.pieValue += " rgb(var(--color3)) " + this.languageData[2].percent  + " " + this.languageData[3].percent + ")";
   }
 
   componentDidMount(){
@@ -49,49 +60,52 @@ class GitFetch extends React.Component{
   }
 
   componentWillUnmount(){
-      window.addEventListener('scroll', this.onScroll);
+      window.removeEventListener('scroll', this.onScroll);
   }
     render() {
         return (
-            <div ref={this.element} className={this.state.scroll ? "transition" : ""}>
+            <div ref={this.element} className={this.state.scroll ? "transition" : "opacity-0"}>
               <div id="clearbox" className="mb-5 mt-5">
-                <div className="d-flex justify-content-start align-items-center">
+                <div className="d-flex justify-content-center align-items-center">
                   <i className="bi bi-graph-up font-large"></i>
-                  <h5 id="textboxmain" className="ms-2">Performance and Activity</h5>
+                  <h2 className="mt-4 ms-3">Performance</h2>
                 </div>
-                <p className="mt-5 mb-5">A small visualization of my recent personal acitivty</p>
-
-
+                <div id="greybox" className="w-50 mt-5 mb-5">
+                  <p>An overview of my recent progress, performance, and activity.</p>
+                  <p>Updated automatically from my GitHub account</p>
+                </div>
                 <div className="data-wrapper">
                   <div className="commit-list">
-                    <p>Commits 30/Days</p>
+                    <p>Commits ~30 Days</p>
                     <div className="commit-box">
                       {this.exampleData.map((key)=>{
-                        return <div className="data-object" style={{opacity: (1.1-1/(key+1))}} ></div>
+                        var color = "rgba(var(--theme1-other),";
+                        color +=  (1.1-1/(key+1)) + ")";
+                        return <div className="data-object" style={{backgroundColor: color}} ><span>{key} contributions</span></div>
                       })}
                     </div>
                   </div>
 
-
                   <div>
-                    <p className="mb-2 pb-0">Projects Launched or Completed /month</p>
+                    <p className="mb-2 pb-0">Projects Completed ~4 Months</p>
                     <div className="bar-graph">
                       {this.projectData.map((data) => {
-                        return <div className="bar" style={{width: 5 + 495*(data/10)}} />
+                        return <div className="bar" style={{width: 5 + 495*(data/10)}}><span>{data} projects completed</span></div>
                       })}
-                      <p className="mb-0 pb-0">0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3</p>
                     </div>
                   </div>
 
                   <div className="pie-wrapper">
-                    <div className="pie-chart"></div>
+                    {this.setPie()}
+                    <div className="pie-chart" style={{backgroundImage: this.pieValue}}></div>
                     <div className="pie-data">
                       {this.languageData.map((data, key) =>{
-                        var color = "rgb(var(--color" + (key+1);
+                        var color = "rgb(var(--color" + key;
                         color+= "))";
                         var value = {backgroundColor: color};
-                        return <div className="d-flex"> <p>{data.name}: {data.amount}</p> <div id="colorbox" style={value}> </div></div>
-                      })}
+                        return <div className="d-flex"> <p>{data.name}</p> <div id="colorbox" style={value}> </div></div>
+                      })
+                      }
                     </div>
                   </div>
                 </div>

@@ -19,12 +19,11 @@ class BlogFetch extends React.Component{
   }
   onScroll(){
     if(this.element.current){
-      var compPos = this.element.current.getBoundingClientRect().top;    
+      var compPos = this.element.current.getBoundingClientRect().top - 100;    
       var scrollPosition = window.scrollY + window.innerHeight;
       if (scrollPosition > compPos){
           this.setScroll(true);
-      } else {
-          this.setScroll(false);
+          window.removeEventListener('scroll', this.onScroll);
       }
     }
   
@@ -35,11 +34,11 @@ class BlogFetch extends React.Component{
   }
 
   componentWillUnmount(){
-      window.addEventListener('scroll', this.onScroll);
+      window.removeEventListener('scroll', this.onScroll);
   }
     render() {
         return (
-            <div ref={this.element} className={this.state.scroll ? "transition w-50" : "w-50"} id="greybox">
+            <div ref={this.element} className={this.state.scroll ? "transition w-50" : "w-50 opacity-0"} id="greybox">
               <div className="d-flex p-2 justify-content-end align-items-end">
                 <h5 id="textboxmain" className="float-end m-2">Recent Blog</h5>
                 <i className="bi bi-blockquote-left font-large"></i>

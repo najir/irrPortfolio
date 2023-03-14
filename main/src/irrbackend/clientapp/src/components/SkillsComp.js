@@ -20,12 +20,12 @@ class SkillsComp extends React.Component{
       }
       onScroll(){
         if(this.element.current){
-          var compPos = this.element.current.getBoundingClientRect().top;    
+          var compPos = this.element.current.getBoundingClientRect().top - 100;    
           var scrollPosition = window.scrollY + window.innerHeight;
           if (scrollPosition > compPos){
               this.setScroll(true);
-          } else {
-              this.setScroll(false);
+              window.removeEventListener('scroll', this.onScroll);
+
           }
         }
       
@@ -36,7 +36,7 @@ class SkillsComp extends React.Component{
       }
     
       componentWillUnmount(){
-          window.addEventListener('scroll', this.onScroll);
+          window.removeEventListener('scroll', this.onScroll);
       }
 
     render() {
