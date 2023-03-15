@@ -13,6 +13,9 @@
     font-size: 12px;
     margin: 5px;
     color: rgb(var(--theme1-text));
-    background-color: rgb(var(--theme1-accent2));
-    border: 1px solid rgb(var(--theme1-border));
+}
+.read-more:hover{
+    font-size: 11px;
+    color: rgb(var(--theme1-accent));
+    cursor: pointer;
 }

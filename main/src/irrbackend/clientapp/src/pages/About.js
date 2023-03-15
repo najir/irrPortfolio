@@ -1,4 +1,5 @@
 import "./styles/about.css";
+import Timeline from "../components/Timeline";
 import React from 'react';
 
 class AboutPage extends React.Component{
@@ -45,13 +46,15 @@ class AboutPage extends React.Component{
                     })}
                   </div>
                 </div>
+
                 <div id="clearbox">
                   <h4>Actually "About Me" this time:</h4>
                   <p>
                     {this.state.readmore ? this.aboutText.slice(0, 50) : this.aboutText}
-                    <button className="read-more" onClick={this.setRead}>{this.state.readmore ? '...Read More' : '...Show Less'}</button>
+                    <div className="read-more" onClick={this.setRead}>{this.state.readmore ? '...Read More' : '...Show Less'}</div>
                   </p>
                 </div>
+                <Timeline />
             </div>
         )
     }
