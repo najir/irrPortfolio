@@ -12,14 +12,13 @@ class HomePage extends React.Component {
     }
     componentDidMount(){
       window.scrollTo(0, 0);
-      
     }
     render(){
         return (
             <div>
               <div id="titleimage"><div className="transition-in">
                 <InfoWidget />
-                <div id="pagefill"></div>
+                <div id="pagefill-medium"></div>
 
                 <div id="textboxmain" className="mt-5 ms-3 welcome-box\">Welcome to my Portfolio!</div>
 

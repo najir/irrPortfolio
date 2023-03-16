@@ -26,8 +26,7 @@ hr {
     display: flex;
     flex-direction: row;
     justify-content: left;
-    margin: 25px 50px 25px 50px;
-    padding: 10px;
+    margin: 25px 25px 25px 25px;
 }
 .welcome-box{
     padding: 0px;

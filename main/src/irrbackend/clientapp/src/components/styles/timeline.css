@@ -39,7 +39,7 @@
     z-index: 9999;
     opacity:  0;
     border: 1px solid rgb(var(--theme1-border));
-    position: absolute; 
+    position: absolute;
     bottom: 30px; 
     text-align: left; 
     padding: 5px;

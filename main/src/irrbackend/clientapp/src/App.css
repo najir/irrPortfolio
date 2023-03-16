@@ -47,6 +47,9 @@ html, body{
 #pagefill-small{
   padding-top: 100px;
 }
+#pagefill-medium{
+  padding-top: 375px;
+}
 #greybox{
     background-color: rgba(0, 0, 0, .5);
     border-bottom: 3px solid rgb(var(--theme1-border));

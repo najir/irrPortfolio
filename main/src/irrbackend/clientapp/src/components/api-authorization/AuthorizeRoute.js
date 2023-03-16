@@ -7,7 +7,6 @@ import authService from './AuthorizeService'
 export default class AuthorizeRoute extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       ready: false,
       authenticated: false

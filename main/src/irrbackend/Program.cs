@@ -31,6 +31,7 @@ builder.Services.AddAuthorization(options =>
         policy => policy.RequireRole("Administrator"));
 });
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -52,9 +53,11 @@ app.UseAuthentication();
 app.UseIdentityServer();
 app.UseAuthorization();
 
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=home}/{action=Index}/");
+app.MapRazorPages();
 
 app.MapFallbackToFile("index.html");
 
