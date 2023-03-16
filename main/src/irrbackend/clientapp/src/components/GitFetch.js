@@ -76,7 +76,10 @@ class GitFetch extends React.Component{
                 </div>
                 <div className="data-wrapper">
                   <div className="commit-list">
-                    <p>Commits ~30 Days</p>
+                    <div className="d-flex align-items-end">
+                      <i className="bi bi-calendar-check font-small me-1 mb-1"></i>
+                      <p className>Commits ~30 Days</p>
+                    </div>
                     <div className="commit-box">
                       {this.exampleData.map((key)=>{
                         var color = "rgba(var(--theme1-other),";
@@ -87,7 +90,11 @@ class GitFetch extends React.Component{
                   </div>
 
                   <div>
-                    <p className="mb-2 pb-0">Projects Completed ~4 Months</p>
+                    <div className="d-flex align-items-end">
+                      <i class="bi bi-check font-small me-1 mb-1"></i>
+                      <p className="mb-2 pb-0">Projects Completed ~4 Months</p>
+                    </div>
+                      
                     <div className="bar-graph">
                       {this.projectData.map((data) => {
                         return <div className="bar" style={{width: 5 + 495*(data/10)}}><span>{data} projects completed</span></div>

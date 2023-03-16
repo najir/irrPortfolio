@@ -1,6 +1,7 @@
 import "./styles/portfolio.css";
 import React from 'react';
-import ProjectFetch from "../components/ProjectFetch"
+import ProjectFetch from "../components/ProjectFetch";
+import InfoWidget from "../components/InfoWidget";
 import PortfolioFetch from "../components/PortfolioFetch";
 
 class PortfolioPage extends React.Component{
@@ -12,17 +13,19 @@ class PortfolioPage extends React.Component{
     }
     render() {
         return (
-            <div className="portfoliopage">
+            <div>
+              <div id="titleimage"><div className="transition-in">
+                <InfoWidget text="Portfolio"/>
                 <div className="portfolio-title">
                   <div id="pagefill"></div>
-                  <h1>Project Portfolio</h1>
                   <div id="greybox" className="w-75">
-                    <p>Below is a list of my recent and past projects. You can find specific information and links to repo's for each individual project</p>
-                    <p>A more generalized overview of my recent projects can be seen on the homepage</p>
+                    <p>Welcome to my Projects page!</p>
+                    <p>All information below is pulled from Githubs API to provide live details and information</p>
                   </div>
-              </div>
-                <ProjectFetch />
-                <PortfolioFetch />
+                </div>
+              </div></div>
+              <ProjectFetch />
+              <PortfolioFetch />
             </div>
         )
     }

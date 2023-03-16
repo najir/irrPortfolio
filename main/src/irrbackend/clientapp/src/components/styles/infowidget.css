@@ -1,0 +1,12 @@
+.info-text{
+    display: inline block;
+    margin: 100px 12px 0px 0;
+    filter: drop-shadow(0 0 5px rgb(var(--theme1-other)));
+    white-space: pre-line;
+    float: right;
+}
+.info-animation{
+    text-align: left;
+    margin: 0;
+    padding-bottom: 8px;
+}

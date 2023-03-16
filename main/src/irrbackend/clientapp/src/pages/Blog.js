@@ -1,5 +1,6 @@
-import "./styles/blog.css";
+import './styles/blog.css';
 import React from 'react';
+import InfoWidget from '../components/InfoWidget';
 
 class BlogPage extends React.Component{
     constructor(props){
@@ -10,8 +11,15 @@ class BlogPage extends React.Component{
     }
     render() {
         return (
-            <div className="blogpage">
-                <h1>This is a Blog page, no current implementation as of right now :o</h1>
+            <div>
+                <div id="titleimage"><div className="transition-in">
+                  <InfoWidget text="My Blog"/>
+                  <div id="pagefill"></div>
+                  <div id="greybox">
+                    <h1 className="text-start">This blog will provide a fully featured text editor and comment history, along with the bulk of my
+                    User Auth features and admin page. This project is currently seperated due to complexity, can be seen here:</h1>
+                  </div>
+                </div></div>
             </div>
         )
     }

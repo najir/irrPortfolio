@@ -8,7 +8,9 @@ body {
 }
 .initial{
   all: initial;
+  color: rgb(var(--theme1-text));
   font-family: 'Roboto';
+  color-scheme: only light;
 }
 .resume{
   color: black;

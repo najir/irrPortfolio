@@ -18,6 +18,12 @@
 .timeline-text{
     text-align: center;
 }
+.timeline-gap{
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    background-color: transparent;
+}
 .timeline-circle{
     position: relative;
     margin-top: -15px;

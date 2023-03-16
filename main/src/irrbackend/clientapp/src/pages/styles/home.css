@@ -29,6 +29,12 @@ hr {
     margin: 25px 50px 25px 50px;
     padding: 10px;
 }
+.welcome-box{
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 700;
+}
 #contactlink{
     display: block;
     width: max-content;

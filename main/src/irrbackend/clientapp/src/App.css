@@ -5,13 +5,18 @@
   --theme1-accent2: 213, 45, 11;
   --theme1-border: 255, 225, 156;
   --theme1-other: 254, 95, 85;
+  color-scheme: only light;
+
 }
 html, body{
   width: 100%;
   height: 100%;
   background-color: rgb(var(--theme1-background));
-  background-image: radial-gradient(#002d3a 2px, #262322 2px);
-  background-size: 40px 40px;
+  background-color: #262322;
+  background-color: #262322;
+  background-color: #262322;
+  background: radial-gradient(circle, transparent 20%, #262322 20%, #262322 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #262322 20%, #262322 80%, transparent 80%, transparent) 10px 10px, linear-gradient(#2b2c3d 0.8px, transparent 0.8px) 0 -0.4px, linear-gradient(90deg, #2b2c3d 0.8px, #262322 0.8px) -0.4px 0;
+  background-size: 20px 20px, 20px 20px, 10px 10px, 10px 10px;
 }
   
 .App {
@@ -28,11 +33,22 @@ html, body{
 .font-large{
   font-size: 36px;
 }
+.titlecard-text{
+  background-color: rgb(var(--theme1-background));
+  display: block;
+  margin: auto;
+  border: 1px solid rgb(var(--theme1-border));
+  width: max-content;
+  padding: 8px
+}
 #pagefill{
   padding-top: 500px;
 }
+#pagefill-small{
+  padding-top: 100px;
+}
 #greybox{
-    background-color: rgba(0, 0, 0, .25);
+    background-color: rgba(0, 0, 0, .5);
     border-bottom: 3px solid rgb(var(--theme1-border));
     margin: 20px 15px 25px 15px;
     padding: 15px;
@@ -43,22 +59,23 @@ html, body{
     padding: 15px;
 }
 #textboxmain{
-    font-size: 100%;
-    display: block;
-    align-content: center;
+    align-self: center;
     width: max-content;
     background-image: linear-gradient(to bottom right, rgb(var(--theme1-other)), rgb(var(--theme1-accent2)));
-    background-color: rgb(var(--theme1-accent2));
-    border: 1px solid rgb(var(--theme1-border));
-    padding: 8px;
+    border: 2px solid rgb(var(--theme1-border));
+    padding: 2px 12px 2px 12px;
 }
 #titleimage{
   background-image: url("./img/title-image.png");
   background-size: cover;
-  padding-bottom: 100px;
+  height: 1000px;
+  box-shadow: 0 0 24px 24px rgb(var(--theme1-background)) inset;
 }
 .transition-in{
-  animation: zoom-in-zoom-out 1s linear;
+  animation: fade-in-anim 2s linear;
+}
+.transition-out{
+  animation: fade-out-anim 1s linear;
 }
 .blink {
   animation: blinker 1s linear infinite;
@@ -67,6 +84,39 @@ html, body{
   animation: slidein 4s linear;
   opacity: 1;
 }
+.text-container{
+  display: inline-block;
+}
+.retyped {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: retyping;
+  animation-duration: 1.5s;
+  animation-timing-function: steps(30, end);
+  animation-fill-mode: forwards;
+}
+.retyped1{
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: retyping;
+  animation-delay: 1.5s;
+  animation-duration: 1.5s;
+  animation-timing-function: steps(30, end);
+  animation-fill-mode: forwards;
+}
+.retyped2{
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: retyping;
+  animation-delay: 3s;
+  animation-duration: 1.5s;
+  animation-timing-function: steps(30, end);
+  animation-fill-mode: forwards;
+}
+
 @keyframes slidein{
   0%, 15%{
       opacity: 0;
@@ -77,18 +127,34 @@ html, body{
       margin-top: 0px;
   }
 }
-
-@keyframes zoom-in-zoom-out {
-  0% {
-  transform: scale(1.1, 1.1);
+@keyframes fade-in-anim{
+  0%, 15%{
+      opacity: 0;
   }
-  25% {
-  transform: scale(1, 1);
+  100%{
+      opacity: 1;
   }
+}
+@keyframes fade-out-anim{
+  0%, 15%{
+    opacity: 1;
   }
+  100%{
+    opacity: 0;
+  }
+}
 
 @keyframes blinker {
   50% {
     opacity: 0;
+  }
+}
+
+@keyframes retyping{
+  from{
+    width: 0;
+  }
+  to{
+    width: 100%;
   }
 }

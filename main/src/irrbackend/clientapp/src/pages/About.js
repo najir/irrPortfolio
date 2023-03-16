@@ -1,5 +1,6 @@
 import "./styles/about.css";
 import Timeline from "../components/Timeline";
+import InfoWidget from "../components/InfoWidget";
 import React from 'react';
 
 class AboutPage extends React.Component{
@@ -14,10 +15,10 @@ class AboutPage extends React.Component{
         this.aboutText += "work into."
 
         this.contactList = [
-            ["email", "irrperks@gmail.com"],
-            ["phone", "(541)321-9148"],
-            ["linkedin", "______"],
-            ["github", "______"]
+            ["Email", "irrperks@gmail.com", "bi bi-telephone font-small"],
+            ["Phone", "(541)321-9148", "bi bi-envelope font-small"],
+            ["Linkedin", "______", "bi bi-linkedin font-small"],
+            ["Github", "______", "bi bi-github font-small"]
         ];
         this.setRead = this.setRead.bind(this);
         this.state={
@@ -35,27 +36,30 @@ class AboutPage extends React.Component{
     }
     render(){
         return(
-            <div className="about">
+          <div>
+              <div id="titleimage"><div className="transition-in">
+              <InfoWidget text="About Me"/>
                 <div id="pagefill"></div>
-                <h1>About Me</h1>
                 <div id="greybox" className="w-75">
-                  <p>Welcome to my portfolio website. This wepage is here to provide Contact Info ______ and a little about myself</p>
+                  <p>Here you can find contact info below, a few details about me personally, and an overview time-line of my experience</p>
                   <div className="contact-info">
                     {this.contactList.map((value)=>{
-                        return <h6 className="contact-item">{value[0]}: {value[1]}</h6>
+                      if(value[2]){ return <div className="d-flex align-items-center"><i className={value[2]}></i><h6 className="contact-item">{value[0]}: {value[1]}</h6></div> }
+                      else{ return <h6 className="contact-item">{value[0]}: {value[1]}</h6> }
                     })}
                   </div>
                 </div>
-
-                <div id="clearbox">
-                  <h4>Actually "About Me" this time:</h4>
-                  <p>
-                    {this.state.readmore ? this.aboutText.slice(0, 50) : this.aboutText}
-                    <div className="read-more" onClick={this.setRead}>{this.state.readmore ? '...Read More' : '...Show Less'}</div>
-                  </p>
-                </div>
-                <Timeline />
+              </div></div>
+              
+            <div id="clearbox">
+                <h4>Actually "About Me" this time:</h4>
+                <p>
+                {this.state.readmore ? this.aboutText.slice(0, 50) : this.aboutText}
+                <div className="read-more" onClick={this.setRead}>{this.state.readmore ? '...Read More' : '...Show Less'}</div>
+                </p>
             </div>
+            <Timeline />
+          </div>
         )
     }
 }
