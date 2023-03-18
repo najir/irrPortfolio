@@ -7,6 +7,7 @@ using irrbackend.DAL;
 using irrbackend.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
+using Duende.IdentityServer.EntityFramework.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,15 @@ builder.Services.AddIdentityServer()
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
+
+builder.Services.AddHttpClient("github", c =>
+{
+    c.BaseAddress = new Uri("https://api.github.com/");
+    c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
+    c.DefaultRequestHeaders.Add($"Authorization, Bearer {builder.Configuration["SECRET-KEY"]}", "Najir-Backend");
+    c.DefaultRequestHeaders.Add("User-Agent", "Najir-Backend");
+
+});
 
 builder.Services.AddAuthorization(options =>
 {
