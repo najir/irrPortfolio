@@ -35,19 +35,30 @@ namespace irrbackend.Controllers
 
 			var response = await client.SendAsync(request);
 
-			string returnData;
+            string returnData;
 
-			if (response.IsSuccessStatusCode)
-			{
-				returnData = await response.Content.ReadAsStringAsync();
-			}
-			else
-			{
-				returnData = "";
-			}
-			return Content(returnData, "application/json");
-		}
-		[HttpGet]
+            if (response.IsSuccessStatusCode)
+            {
+                using var body =
+                    await response.Content.ReadAsStreamAsync();
+
+                GitModel? editData = await JsonSerializer.DeserializeAsync<GitModel>(body);
+                Week[] weekArray = editData.Data.Viewer.ContributionsCollection.ContributionCalendar.Weeks[0..4];
+                using (var stream = new MemoryStream())
+                {
+                    await JsonSerializer.SerializeAsync(stream, weekArray);
+                    stream.Position = 0;
+                    using var reader = new StreamReader(stream);
+                    returnData = await reader.ReadToEndAsync();
+                }
+            }
+            else
+            {
+                returnData = "An Error Has Occured";
+            }
+            return Content(returnData, "application/json");
+        }
+        [HttpGet]
         public async Task<IActionResult> GitProjectPull()
         {
             var request = new HttpRequestMessage(HttpMethod.Post, projectListQuery);
@@ -56,19 +67,15 @@ namespace irrbackend.Controllers
 
             var response = await client.SendAsync(request);
 
-             string returnData;
+            string returnData;
 
             if (response.IsSuccessStatusCode)
             {
-                using var body = 
-                    await response.Content.ReadAsStreamAsync();
-
-                GitModel? editData = await JsonSerializer.DeserializeAsync<GitModel>(body);
-                returnData = editData.data.viewer.contributionsCollection.contributionCalendar.weeks.GetRange(0, 4);
+                returnData = await response.Content.ReadAsStringAsync();
             }
             else
             {
-                returnData = JsonSerializer.Serialize<Dictionary<string, Object>>((){"",""});
+                returnData = "An Error Has Occured";
             }
             return Content(returnData, "application/json");
         }
@@ -90,12 +97,10 @@ namespace irrbackend.Controllers
             }
             else
             {
-                returnData = "";
+                returnData = "An Error Has Occured";
             }
             return Content(returnData, "application/json");
         }
     }
-
-
 
 }
