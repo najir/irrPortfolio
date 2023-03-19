@@ -1,5 +1,8 @@
+using irrbackend.Models;
 using Castle.Components.DictionaryAdapter.Xml;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace irrbackend.Controllers
 {
@@ -10,11 +13,9 @@ namespace irrbackend.Controllers
 
 		private readonly IHttpClientFactory _clientFactory;
 
-        private static string commityHistoryQuery = "";
+        private static string commityHistoryQuery = "query { viewer{ contributionsCollection{ contributionCalendar{ weeks{ contributionDays{ contributionCount}}}}}}";
 
-		private static string projectListQuery = "";
-
-		private static string projectItemQuery = "";
+		private static string projectListQuery = "query {viewer {repositories(last: 10, privacy: PUBLIC){ nodes{ name, description }}}}";
 
 		public GitController(ILogger<GitController> logger, IHttpClientFactory clientFactory)
 		{
@@ -55,21 +56,26 @@ namespace irrbackend.Controllers
 
             var response = await client.SendAsync(request);
 
-            string returnData;
+             string returnData;
 
             if (response.IsSuccessStatusCode)
             {
-                returnData = await response.Content.ReadAsStringAsync();
+                using var body = 
+                    await response.Content.ReadAsStreamAsync();
+
+                GitModel? editData = await JsonSerializer.DeserializeAsync<GitModel>(body);
+                returnData = editData.data.viewer.contributionsCollection.contributionCalendar.weeks.GetRange(0, 4);
             }
             else
             {
-                returnData = "";
+                returnData = JsonSerializer.Serialize<Dictionary<string, Object>>((){"",""});
             }
             return Content(returnData, "application/json");
         }
 		[HttpGet("{id}")]
         public async Task<IActionResult> GitProjectPull(int id)
         {
+            string projectItemQuery = $"query {{viewer {{repository(name:{id}) {{description}}}}}}";
             var request = new HttpRequestMessage(HttpMethod.Post, projectItemQuery);
 
             var client = _clientFactory.CreateClient("github");
