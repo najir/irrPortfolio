@@ -17,7 +17,10 @@ namespace irrbackend.Controllers
 
 		private static string projectListQuery = "query {viewer {repositories(last: 10, privacy: PUBLIC){ nodes{ name, description }}}}";
 
-		public GitController(ILogger<GitController> logger, IHttpClientFactory clientFactory)
+        private static string projectLanguages = "query { viewer{ repositories(last: 15){ nodes{ languages(first: 5){ nodes{name} }}}}}";
+
+
+        public GitController(ILogger<GitController> logger, IHttpClientFactory clientFactory)
 		{
 			_logger = logger;
 			_clientFactory = clientFactory;
@@ -26,6 +29,29 @@ namespace irrbackend.Controllers
         [Route("/error")]
 		public IActionResult HandleError() =>
 			Problem();
+        [HttpGet]
+        public async Task<IActionResult> GitLanguagePie()
+        {
+            var request = new HttpRequestMessage(HttpMethod.Post, projectLanguages);
+
+            var client = _clientFactory.CreateClient("github");
+
+            var response = await client.SendAsync(request);
+
+            string returnData;
+
+            if (response.IsSuccessStatusCode)
+            {
+                returnData = await response.Content.ReadAsStringAsync();
+            }
+            else
+            {
+                returnData = "An Error Has Occured";
+            }
+            return Content(returnData, "application/json");
+
+        }
+
         [HttpGet]
         public async Task<IActionResult> GitProgressPull()
 		{
@@ -82,7 +108,7 @@ namespace irrbackend.Controllers
 		[HttpGet("{id}")]
         public async Task<IActionResult> GitProjectPull(int id)
         {
-            string projectItemQuery = $"query {{viewer {{repository(name:{id}) {{description}}}}}}";
+            string projectItemQuery = $"query {{ viewer{{ repository(name: {id}){{ defaultBranchRef{{ target{{ ...on Commit{{ history{{ totalCount}}}}}}}} description, primaryLanguage {{name}}, updatedAt, createdAt}}}}";
             var request = new HttpRequestMessage(HttpMethod.Post, projectItemQuery);
 
             var client = _clientFactory.CreateClient("github");

@@ -14,7 +14,7 @@ function App() {
       <header>
         <NavBar />
       </header>
-      <div className = "mainBody">
+      <div>
         <Routes>
           {ClientRoutes.map((route, index) => {
               const { page, requireAuth, ...rest } = route;

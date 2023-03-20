@@ -24,6 +24,8 @@ namespace irrbackend.Models
     {
         [JsonPropertyName("contributionsCollection")]
         public ContributionsCollection ContributionsCollection { get; set; }
+        [JsonPropertyName("repositories")]
+        public Repositories Repositories { get; set; }
     }
 
     public partial class ContributionsCollection
@@ -48,5 +50,28 @@ namespace irrbackend.Models
     {
         [JsonPropertyName("contributionCount")]
         public long ContributionCount { get; set; }
+    }
+    public partial class Repositories
+    {
+        [JsonPropertyName("nodes")]
+        public RepositoriesNode[] Nodes { get; set; }
+    }
+
+    public partial class RepositoriesNode
+    {
+        [JsonPropertyName("languages")]
+        public Languages Languages { get; set; }
+    }
+
+    public partial class Languages
+    {
+        [JsonPropertyName("nodes")]
+        public LanguagesNode[] Nodes { get; set; }
+    }
+
+    public partial class LanguagesNode
+    {
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
     }
 }

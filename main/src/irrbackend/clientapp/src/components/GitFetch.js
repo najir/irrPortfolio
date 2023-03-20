@@ -13,7 +13,7 @@ class GitFetch extends React.Component{
     ];
     this.languageData = [
       {name: "cpp",
-       percent: "50%"},
+       percent: "40%"},
        {name: "c#",
        percent: "60%"},
        {name: "python",

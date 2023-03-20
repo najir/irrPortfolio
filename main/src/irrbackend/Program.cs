@@ -28,7 +28,7 @@ builder.Services.AddAuthentication()
 
 builder.Services.AddHttpClient("github", c =>
 {
-    c.BaseAddress = new Uri("https://api.github.com/");
+    c.BaseAddress = new Uri("https://api.github.com/graphql");
     c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
     c.DefaultRequestHeaders.Add($"Authorization, Bearer {builder.Configuration["SECRET-KEY"]}", "Najir-Backend");
     c.DefaultRequestHeaders.Add("User-Agent", "Najir-Backend");

@@ -1,22 +1,22 @@
 {
   "basics": {
     "name": "Isaac Perks",
-    "label": "Developer",
+    "label": "Software & Web Development",
     "email": "irrperks@gmail.com",
     "phone": "(541)321-9148",
     "url": "https://github.com/najir",
     "summary": "This is a test summary of a bunch of things, I'm unsure of the exact formating or specifications to occur from this particular field.\nThis is a new line and paragraph. Yet there is no way to actually break the line within my editor. So I'm stuck writing/nan extremely long line of text that is disgusting to understand and foucs on, but shouldn't be a huge issue for resume factoring I assume.",
     "location": {
-      "address": "975 Charnelton Street",
-      "postalCode": "OR, 97401",
-      "city": "Eugene",
+      "address": "8650 SW Canyon Lane",
+      "postalCode": "OR, 97225",
+      "city": "Beaverton",
       "countryCode": "US",
       "region": "Oregon"
     },
     "profiles": [{
       "network": "Linked-In",
       "username": "Isaac Perks",
-      "url": "twitter.com/john"
+      "url": "https://twitter.com/john"
     }]
   },
   "education": [{
@@ -62,7 +62,8 @@
       "REACT",
       "VUE",
       "NODE",
-      "Routes"
+      "Bootstrap",
+      "React-router"
     ]
   },
   {
@@ -79,7 +80,11 @@
       "SQL",
       "SQLite3",
       "PostGre SQL",
-      "AWS RDS/EC2"
+      "AWS RDS/EC2",
+      "Express",
+      "Identity 4",
+      "REST",
+      "GraphQL"
     ]
   },
   {
@@ -91,7 +96,8 @@
       "Python",
       "QT Designer",
       "TKBuilder",
-      "SQLite3"
+      "SQLite3",
+      "Pyside"
     ]
 },{
   "name": "Languages and Enviroments",
@@ -128,16 +134,6 @@
       "ZBrush",
       "Krita"
     ]
-  },
-  {
-    "name": "Local Politics",
-    "keywords": [
-    ]
-  },
-  {
-    "name": "Psychology & Philosophy",
-    "keywords": [
-    ]
   }],
   "references": [{
     "name": "Jane Doe",
@@ -145,7 +141,7 @@
   }],
   "projects": [{
     "name": "FrontierZ Launcher",
-    "description": "Desktop application to link with existing game launcher system. QT Framework front end via Pyside6. Pulls server images, banners, install data from server owners endpoint. Also pulls RSS feed to host news/updates for server owners to user. Users can also add personal servers. Data hosted locally via SQLite3 implementation.",
+    "description": "Desktop VideoGame Launcher. QT Framework front end via Pyside6. Pulls server images, banners, and install data from server owners endpoint. RSS feed integration to host news/updates from server owners to user. Users can add personal servers. Data hosted locally via SQLite3 implementation.",
     "keywords": [
       "QT Framework",
       "Python",
@@ -159,7 +155,7 @@
   },
   {
     "name": "IrrPortfolio",
-    "description": "ASP.NET Core MVC server hosting React SPA. User Auth/Identification via Duende Identity 4. Blog implementation via ____ to SQL database. Book review system stored in database with API calls to server. Mainpage pull github API to visualize personal data via ____ react library.",
+    "description": "Personal Portfolio Website. ASP.NET Core MVC backend with api end-points and SQL database access. REACT frontend with bootstrap, reactstrap, react-router for dynamic pages. User Auth/Identification via Duende Identity 4. Github GraphQL API endpoints on back-end. Integrated irrResume page. ",
     "keywords": [
       "ASP.NET 7.0",
       "MVC",
@@ -168,7 +164,10 @@
       "LINQ",
       "REACT.js",
       "NODE.js",
-      "Duende"
+      "Identity 4",
+      "Bootstrap/reactstrap",
+      "GraphQL",
+      "REST"
     ],
     "date": "Feburary/March 2023",
     "url": "https://project.com/",
@@ -177,14 +176,14 @@
   },
   {
     "name": "RustPSM",
-    "description": "Vue based SPA website running on Node.js routes. Creates pages based on SteamAPI userdata calls, create an accessable store of data on a mongoDB database.",
+    "description": "Vue based SPA website running on Node.js and Express. Users enter a SteamID and a unique page is created showing stats pulled from Rust(Game) API. Data is then stored in a MongoDB Atlas server for easier loads, and large scale data collection",
     "keywords": [
-      "Node Route?",
       "MongoDB",
-      "???",
+      "Express",
       "Vue.js",
-      "???",
-      "NODE.JS"
+      "Ajax",
+      "NODE.JS",
+      "Javascript"
     ],
     "date": "May 2022",
     "url": "https://project.com/",
@@ -193,10 +192,10 @@
   },
   {
     "name": "IrrResume",
-    "description": "This resume is a JSONSchema wrapped by a REACT.js webpage that is then converted to PDF if needed by ___. Integrated into my portfolio website.",
+    "description": "This resume is a JSON Schema wrapped by a REACT.js webpage that is then converted to PDF. Integrated into my portfolio website.",
     "keywords": [
       "React.js",
-      "Jsonresume Schema",
+      "Json Schema",
       "VSCode",
       "Javascript"
     ],

@@ -6,12 +6,12 @@ class ProjectFetch extends React.Component{
   constructor(props){
     super(props);
     this.projectData={
-      title: "test project",
+      title: "LauncherZ",
       language: "c++",
-      startdate: "05/11/1999",
-      lastupdate: "3/12/2022",
-      description: "This is a test description of my project and it's details. More information can be found at the source!!!",
-      link: "https://www.github.com/najir"
+      startdate: "02/09/2023",
+      lastupdate: "02/23/2023",
+      description: "A front end GUI replacement launcher to pair with an existing codebase for Monster Hunter Frontiers launcher",
+      link: "https://github.com/najir/launcherZ"
     }
     this.exampleData = [
       0,1,2,3,4,3,3,7,8,4,3

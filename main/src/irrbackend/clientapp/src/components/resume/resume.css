@@ -1,0 +1,226 @@
+
+@font-face {
+  font-family: 'Didot';
+  src: local('Didot'), url(./rsc/DidotBold.otf) format('opentype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Didot';
+  src: local('Didot'), url(./rsc/DidotItalic.otf) format('opentype');
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Didot';
+  src: local('Didot'), url(./rsc/DidotBoldItalic.ttf) format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+:root{
+  --resume-keyword: 255, 225, 156;
+  --resume-border: 78, 86, 78;
+  --resume-accent: 213, 45, 11;
+  --resume-accent2: 213, 45, 11;
+  --resume-accent3: 64, 118, 140;
+
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI",-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.initial{
+  all:initial;
+  font-family: 'Didot';
+  color-scheme: only light;
+
+}
+.resume{
+  color: black;
+  background-color: rgb(255, 255, 248);
+  margin: 125px auto 25px auto;
+  padding: 25px 35px 25px 35px;
+  width: 77%;
+}
+.flex-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+.flex-other{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+.flex-header{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: left;
+  line-height: 1;
+  margin: 20px 0 0 0
+}
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+.flex-user{
+  margin: 20px 0 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+.flex-icon{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: top;
+}
+.icon-size{
+  font-size: 18px;
+  margin-top: -4px;
+  margin-right: 3px;
+}
+.icon-float{
+  font-size: 36px;
+  margin-top: -4px;
+  margin-right: 3px;
+  float: right;
+}
+#interest, #courses, #keyword, #keyword-project{
+  font-size: 10px;
+  font-weight: 900;
+  border-left: 2px solid rgb(var(--resume-border));
+  margin: 1px 1px 1px 1px;
+  padding: 6px 2px 6px 2px;
+  line-height: 0;
+  text-align: left;
+  white-space: nowrap;
+  max-height: 5px;
+}
+#keyword{
+  border: none;
+  padding: 10px 4px 8px 4px;
+  background-color: rgb(var(--resume-keyword));
+  border-radius: 5%;
+  text-align: center;
+}
+#keyword-project{
+  border-radius: 5%;
+  text-align: center;
+}
+.resume h1,.resume  h2,.resume  h3,.resume  h4,.resume  h5,.resume  h6,.resume  p{
+  line-height: 1;
+  margin: 0 0 0 0;
+  padding: 0 0 10px 0;
+}
+.resume h1, h2{
+  padding: 0 0 25px 0;
+}
+.resume h3{
+  padding: 0 0 10px 0;
+  font-size: 28px;
+}
+.resume h4{
+  padding: 0 0 10px 0;
+  font-size: 20px;
+
+}
+.resume h5{
+  color: rgb(var(--resume-accent2));
+  font-size: 16px;
+
+}
+.resume h6{
+  line-height: 0;
+  padding: 0 0 0 0;
+  margin: -2px 0 12px 0;
+  font-size: 14px;
+
+}
+.resume hr{
+border: 2px solid rgb(var(--resume-border));
+margin: 0 0 5px 0;
+}
+.date-color{
+  color: rgb(var(--resume-accent3));
+}
+#leftBox{
+  text-align: left;
+  flex: 3 0 0;
+}
+#mainBox{
+  text-align: left;
+  margin: 0 0 0 5px;
+  flex: 11 0 0;
+}
+#experiencelevel{
+  height: 4px;
+  margin-bottom: 3px;
+  border-radius: 0%;
+}
+progress::-webkit-progress-value {
+  background-color: rgb(var(--resume-accent));
+}
+#skillname{
+  line-height: 1;
+  padding: 0 0 0 0;
+  margin: 25px 0 -5px 0;
+}
+#projectwrapper{
+  margin: -8px 0 15px 0;
+}
+#title{
+  color: rgb(var(--resume-accent2));
+  margin: 15px 0 5px -15px;
+  padding: 0 0 0 2px;
+  border-left: 4px solid rgb(var(--resume-border));
+}
+#subtitle{
+  margin: 25px 0 10px 0;
+}
+#interestname{
+  line-height: 1;
+  padding: 0 0 0 0;
+  margin: 15px 0 25px 0;
+}
+#maintitle{
+  margin: 0px 0 -15px 0;
+}
+#profile{
+  line-height: 1;
+  flex-shrink: 10;
+  margin: 0 0 10px 0px;
+  padding: 0px 1px 10px 2px;
+}
+#socials{
+  margin: 45px 0 0 0;
+}
+#educationname{
+  margin: 0px 0 30px 0;
+}
+#experiencetitle{
+  margin: 0 0 -8px 0;
+}
+
+
+@media print{
+  .resume{
+    background-color: white;
+    border: none;
+    margin: 0px 0 0px 0;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+  }
+  
+  #experiencetitle{
+    margin: 5px 0 -8px 0;
+  }
+}

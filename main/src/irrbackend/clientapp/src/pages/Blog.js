@@ -16,8 +16,7 @@ class BlogPage extends React.Component{
                   <InfoWidget text="My Blog"/>
                   <div id="pagefill"></div>
                   <div id="greybox">
-                    <h1 className="text-start">This blog will provide a fully featured text editor and comment history, along with the bulk of my
-                    User Auth features and admin page. This project is currently seperated due to complexity, can be seen here:</h1>
+                    <h1 className="text-start">Blog is currently seperated to a new project due to complexity</h1>
                   </div>
                 </div></div>
             </div>

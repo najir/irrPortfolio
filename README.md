@@ -3,22 +3,32 @@
 	2/20/23
 
 #Description
-My personal website source code written in C# and JS.   
-ASP.NET CORE for the backend elements and API access. React.js as my front-end UI.      
-This personal website will be used to host a variety of data for storage and viewing.   
-I will also be using this website as a testing ground for more complex features I may use in other   
-projects. An overview of features I look to include;   
-- Multi-Page application to access documents quickly   
-- A Login system with a simple admin page   
-- Portfolio page with pictures, gifs, and other visual feedback elements   
-- Simple home and about-me pages   
-- A viewable and saveable, easy to access copy of my resume  
-- A visual time-line overview of my life and past/current/upcoming projects   
-- Blog page with comments, login security, rss feed, infinite scroll loading etc...   
-   
+My personal portfolio website. Serves as a place of practice and an overview of my experience & skills.
+Built in C# ASP.NET CORE MVC for the backend, JS React for the frontend, and SQL for the database.
+I developed this project while using as few libraries as possible and as few pre-made templates as possible.
 
-Specific details will be written here as the project progresses:   
 
+Currently this website includes a host of features such as;  
+- User Authentication via Duende  
+- Database Read/Write with API endpoints  
+- Data visualization and retrieval from location such as github  
+- Dynamic webpages with smooth animations and fast response times  
+- Integrated resume as a JSON schema wrapped in react  
+- A web api for front/back-end communication  
+Other notable points: 
+- The backend calls github data via GraphQL calls
+- All API calls are implemented via ASYNC/AWAIT process
+- Minimal library usage to keep build process simple
+- Built without as few pre-written templates via Microsoft as possible
+  
+  
+  
+Plans to further update this project include;  
+- Fully featured blog  
+- User and Admin Interface  
+- Direct project integration  
+*These will be implemented via other repo's to be built with more compartmentalization of logic in mind and allow for reuse in other places  
+  
 ### Build
 	OS: Windows
 	IDE: Visual Studio Community 2022   
@@ -31,4 +41,12 @@ Specific details will be written here as the project progresses:
 		EntityFrameworkCore
 		EFC SQLServer
 		Swashbuckle aspnetcore(Swagger OpenAPI UI)
-	N/A
+		IdentityServer
+		SPAProxy
+	React 13.4
+		Bootstrap 5.2
+		Bootstrap Icons
+		Http-Proxy-Middleware 2.0.6
+		React-router 6.3
+		Reactstrap 9.1.3
+		Rimraf 3.0.2

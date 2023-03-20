@@ -6,52 +6,52 @@ class PortfolioFetch extends React.Component{
   constructor(props){
     super(props);
     this.projectData=[{
-      title: "test project",
+      title: "IrrPortfolio",
       image: "linear-gradient(90deg, rgba(113,131,204,1), rgba(60,131,100,1))",
-      language: "c++",
-      startdate: "05/11/1999",
-      lastupdate: "3/12/2022",
-      description: "This is a test description of my project and it's details. More information can be found at the source!!!",
-      link: "https://www.github.com/najir"
+      language: "C#",
+      startdate: "02/20/2023",
+      lastupdate: "03/20/2023",
+      description: "My personal portfolio website source code",
+      link: "https://github.com/najir/irrPortfolio"
     },{
-        title: "test project1",
+        title: "IrrResume",
         image: "linear-gradient(90deg, rgba(50,131,204,1), rgba(60,131,25,1))",
-        language: "python",
-        startdate: "05/11/1999",
-        lastupdate: "3/12/2022",
-        description: "This is a test description of my project and it's details. More information can be found at the source!!!",
-        link: "https://www.github.com/najir"
+        language: "Javascript",
+        startdate: "03/02/2023",
+        lastupdate: "3/20/2023",
+        description: "A JSON Schema based resume that can be viewed as a front-end webpage via REACT and printed to a PDF for physical copy.",
+        link: "https://github.com/najir/irrResume"
       },{
-        title: "test project2",
+        title: "LauncherZ",
         image: "linear-gradient(90deg, rgba(113,50,204,1), rgba(60,200,100,1))",
-        language: "javascript",
-        startdate: "05/11/1999",
-        lastupdate: "3/12/2022",
-        description: "This is a test description of my project and it's details. More information can be found at the source!!!",
-        link: "https://www.github.com/najir"
+        language: "Python",
+        startdate: "02/09/2023",
+        lastupdate: "02/23/2023",
+        description: "A front end GUI replacement launcher to pair with an existing codebase for Monster Hunter Frontiers launcher",
+        link: "https://github.com/najir/launcherZ"
       },{
-        title: "test3",
+        title: "Readify",
         image: "linear-gradient(90deg, rgba(113,131,204,1), rgba(60,131,100,1))",
-        language: "c#",
-        startdate: "05/11/1999",
-        lastupdate: "3/12/2022",
-        description: "This is a test description of my project and it's details. More information can be found at the source!!!",
-        link: "https://www.github.com/najir"
+        language: "C++",
+        startdate: "02/02/2023",
+        lastupdate: "02/11/2023",
+        description: "A personal book journal that lets you save info on books and mark when finished.",
+        link: "https://github.com/najir/Readify"
       },{
-        title: "test122",
-        language: "c#",
-        startdate: "05/11/1999",
-        lastupdate: "3/12/2022",
-        description: "This is a test description of my project and it's details. More information can be found at the source!!!",
-        link: "https://www.github.com/najir"
+        title: "DSA",
+        language: "C++",
+        startdate: "12/05/2022",
+        lastupdate: "01/31/2023",
+        description: "Basic project to practice implementing Data Structures",
+        link: "https://github.com/najir/DSA"
       },{
-        title: "test555",
+        title: "RustPSM",
         image: "linear-gradient(90deg, rgba(113,131,100,1), rgba(30,131,100,1))",
-        language: "c#",
-        startdate: "05/11/1999",
-        lastupdate: "3/12/2022",
-        description: "This is a test description of my project and it's details. More information can be found at the source!!!",
-        link: "https://www.github.com/najir"
+        language: "Javascript",
+        startdate: "04/09/2022",
+        lastupdate: "07/21/2022",
+        description: "Rust Player Stat Module is a basic Javascript based application that will allow you to pull and modify player information via steam name or ID. Data is then used to make comparative assessments and is displayed to the user",
+        link: "https://github.com/najir/rustPSM"
       }]
     this.exampleData = [
       0,1,2,3,4,3,3,7,8,4,3

@@ -15,7 +15,7 @@ class HomePage extends React.Component {
     }
     render(){
         return (
-            <div>
+            <div className="home">
               <div id="titleimage"><div className="transition-in">
                 <InfoWidget />
                 <div id="pagefill-medium"></div>
@@ -24,6 +24,7 @@ class HomePage extends React.Component {
 
                 <div id="greybox" className="w-50">
                   <p>Built with ASP.NET and React, this website contains a host of revelant features such as: </p>
+                  <p>Note 3/20/23: Current data is not pulling GraphQL data(Font-end fetch incomplete.) and Blog is being seperated into another project.</p>
                   <br />
                   <div className = "d-flex flex-column">
                     <div className = "d-flex align-items-end">
@@ -36,7 +37,7 @@ class HomePage extends React.Component {
                     </div>
                     <div className = "d-flex align-items-end">
                       <i class="bi bi-hdd-rack font-small me-1 mb-1"></i>
-                      <p>Full Database integration and access via SQL | Test on Azure</p>
+                      <p>Full Database integration and access via SQL | Tested on Azure</p>
                     </div>
                     <div className = "d-flex align-items-end">
                       <i class="bi bi-filetype-jsx font-small me-1 mb-1"></i>

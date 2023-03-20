@@ -1,10 +1,10 @@
-div {
+.home div {
     text-align: left;
 }
-h1 {
+.home h1 {
     text-align: center;
 }
-hr {
+.home hr {
     margin: auto;
     display: block;
     width: 75%;

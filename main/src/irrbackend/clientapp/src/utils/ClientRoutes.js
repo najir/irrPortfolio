@@ -3,7 +3,7 @@ import HomePage from '../pages/Home';
 import AboutPage from '../pages/About';
 import BlogPage from '../pages/Blog';
 import PortfolioPage from '../pages/Portfolio';
-import IrrResume from '../components/irrResume/App';
+import IrrResume from '../components/resume/IrrResume';
 
 const ClientRoutes = [
     {
