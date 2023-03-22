@@ -94,11 +94,11 @@ class PortfolioFetch extends React.Component{
                 {this.projectData.map((data) =>{
                     return <div className="portfolio-object" style={{backgroundImage: data.image}}>
                         <div className="project-section">
-                        <h2>{data.title}</h2>
-                        <div className="project-image" style={{backgroundImage: data.image}} />
-                        <p>{data.language} | {data.startdate} | Updated on {data.lastupdate}</p>
-                        <p>{data.description}</p>
-                        <p className="mt-5">View the source code at it's <a href={data.link}>GitHub</a> link</p>
+                          <h2>{data.title}</h2>
+                          <p>{data.language} | {data.startdate} | Updated on {data.lastupdate}</p>
+                          <div className="project-image" style={{backgroundImage: data.image}} />
+                          <p id="greybox">{data.description}</p>
+                          <p className="mt-5"><a href={data.link}>GitHub</a></p>
                         </div>
                      </div>
                 })}

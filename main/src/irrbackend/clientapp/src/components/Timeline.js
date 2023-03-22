@@ -20,14 +20,12 @@ class Timeline extends React.Component{
             },
             {title: "gap"},
             {title: "gap"},
-            {title: "gap"},
             {
                 start: "2015",
                 end: "2017",
                 title: "UE4 Game development",
                 description: "Made several small projects with UE4 BP's, Maya, Zbrush, and Blender"
             },
-            {title: "gap"},
             {title: "gap"},
             {title: "gap"},
             {title: "gap"},
@@ -41,7 +39,6 @@ class Timeline extends React.Component{
             {title: "gap"},
             {title: "gap"},
             {title: "gap"},
-            {title: "gap"},
             {
                 start: "2019",
                 end: "2021",
@@ -51,41 +48,40 @@ class Timeline extends React.Component{
             {title: "gap"},
             {title: "gap"},
             {title: "gap"},
-            {title: "gap"},
             {
-                start: "March 2022",
+                start: "Mar 2022",
                 end: "May 2022",
                 title: "rustPSM",
                 description: "Details in portfolio page!"
             },
             {title: "gap"},
             {
-                start: "December 2022",
-                end: "Janurary 2023",
+                start: "Dec 2022",
+                end: "Jan 2023",
                 title: "Data Structures",
                 description: "Details in portfolio page!"
             },
             {
-                start: "Janurary 2023",
-                end: "February 2023",
+                start: "Jan 2023",
+                end: "Feb 2023",
                 title: "Bookify",
                 description: "Details in Portfolio page"
             },
             {
-                start: "February 2023",
-                end: "February 2023",
+                start: "Feb 2023",
+                end: "Feb 2023",
                 title: "LauncherZ",
                 description: "Details in portfolio page"
             },
             {
-                start: "February 2023",
-                end: "March 2023",
+                start: "Feb 2023",
+                end: "Mar 2023",
                 title: "irrResume",
                 description: "Details in portfolio page"
             },
             {
-                start: "February 2023",
-                end: "March 2023",
+                start: "Feb 2023",
+                end: "Mar 2023",
                 title: "irrPortfolio",
                 description: "Details in portfolio page"
             },
@@ -118,11 +114,6 @@ class Timeline extends React.Component{
         return(
             <div  ref={this.element} className={this.state.scroll ? "transition" : ""}>
                 <div id="clearbox">
-                    <h1 className="timeline-title">Timeline</h1>
-                    <div className="timeline-labels">
-                        <p>2014</p>
-                        <p>Current Year</p>
-                    </div>
                     <div className="timeline-bar"></div>
                     <div className="timeline-wrapper">
                         {this.timelineData.map((data)=>{
@@ -130,12 +121,15 @@ class Timeline extends React.Component{
                                 return <div className="timeline-gap"></div>
                             }else{
                                 return(
-                                    <div className="timeline-circle">
-                                      <span>
-                                        <p className="date-text">{data.start}-{data.end}</p>
-                                        <p>{data.title}</p>
-                                        <p>{data.description}</p>
-                                      </span>
+                                    <div>
+                                        <div className="circle-date">{data.start}</div>
+                                        <div className="timeline-circle">
+                                        <span>
+                                            <p className="date-text">{data.start}-{data.end}</p>
+                                            <p>{data.title}</p>
+                                            <p>{data.description}</p>
+                                        </span>
+                                        </div>
                                     </div>
                                 )
                             } 

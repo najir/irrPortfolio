@@ -52,18 +52,21 @@ class ProjectFetch extends React.Component{
             <div ref={this.element} className={this.state.scroll ? "transition" : "opacity-0"}>
               <div id="clearbox" className="mt-5 mb-5">
 
-                <div className="d-flex justify-content-start align-items-center">
-                  <i className="bi bi-server font-large"></i>
+                <div className="d-flex justify-content-start align-items-start">
+                  <i className="bi bi-server font-large mb-2"></i>
                   <h5 id="textboxmain" className="ms-2">Featured Project</h5>
                 </div>
 
                 <div className="d-flex">
                   <div>
-                    <div className="d-flex justify-content-start align-items-center gap-5">
-                      <h2>{this.projectData.title}</h2>
-                      <p>{this.projectData.language} | {this.projectData.startdate} | Updated on {this.projectData.lastupdate}</p>
+                    <h2>{this.projectData.title}</h2>
+                    <div className="featured-details">
+                      <p>Primary Language: {this.projectData.language}</p>
+                      <p>Start Date: {this.projectData.startdate}</p>
+                      <p>Last Updated: {this.projectData.lastupdate}</p>
                     </div>
-                    <p>{this.projectData.description}</p>
+                    <p>{this.projectData.description}</p>                    
+
                   </div>
 
                   <div>

@@ -57,6 +57,11 @@
     height: 28px;
     width: 28px;
 }
+.circle-date{
+    position: absolute;
+    font-size: 12px;
+    margin: -35px 0 0 0;
+}
 .date-text{
     font-size: 9px;
     float: right;

@@ -20,7 +20,7 @@ class PortfolioPage extends React.Component{
                   <div id="pagefill"></div>
                   <div id="greybox" className="w-75">
                     <p>Welcome to my Projects page!</p>
-                    <p>All information below is pulled from Githubs API to provide live details and information</p>
+                    <p>Currently a simple list of my recent projects, with some details and a link to their source code. Colors are a temp. representation of what a picture would look like, if I could pull from githubs social images</p>
                   </div>
                 </div>
               </div></div>

@@ -26,6 +26,17 @@
     height: auto; 
     background-color: rgb(var(--theme1-accent)); 
 }
+.featured-details{
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    margin-top: -30px;
+}
+.featured-details *{
+    padding: 0 3px 0 3px;
+    border-right: 1px solid rgb(var(--theme1-border));
+    border-left: 1px solid rgb(var(--theme1-border));
+}
 .bar-top:hover > span{
     visibility: visible;
     opacity: 1;

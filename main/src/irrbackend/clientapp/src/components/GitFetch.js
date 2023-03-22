@@ -71,12 +71,11 @@ class GitFetch extends React.Component{
                   <h2 className="mt-4 ms-3">Performance</h2>
                 </div>
                 <div id="greybox" className="w-50 mt-5 mb-5">
-                  <p>An overview of my recent progress, performance, and activity.</p>
-                  <p>Updated automatically from my GitHub account</p>
+                  <p>A quick overview of my Git progress and activity.</p>
                 </div>
                 <div className="data-wrapper">
                   <div className="commit-list">
-                    <div className="d-flex align-items-end">
+                    <div className="d-flex align-items-start">
                       <i className="bi bi-calendar-check font-small me-1 mb-1"></i>
                       <p className>Commits ~30 Days</p>
                     </div>

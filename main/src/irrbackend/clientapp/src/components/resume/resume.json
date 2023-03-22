@@ -84,7 +84,8 @@
       "Express",
       "Identity 4",
       "REST",
-      "GraphQL"
+      "GraphQL",
+      "Azure"
     ]
   },
   {
@@ -167,7 +168,8 @@
       "Identity 4",
       "Bootstrap/reactstrap",
       "GraphQL",
-      "REST"
+      "REST",
+      "Azure"
     ],
     "date": "Feburary/March 2023",
     "url": "https://project.com/",
