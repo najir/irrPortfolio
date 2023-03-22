@@ -106,7 +106,7 @@ namespace irrbackend.Controllers
             return Content(returnData, "application/json");
         }
 		[HttpGet("{id}")]
-        public async Task<IActionResult> GitProjectPull(int id)
+        public async Task<IActionResult> GitProjectPullId(int id)
         {
             string projectItemQuery = $"query {{ viewer{{ repository(name: {id}){{ defaultBranchRef{{ target{{ ...on Commit{{ history{{ totalCount}}}}}}}} description, primaryLanguage {{name}}, updatedAt, createdAt}}}}";
             var request = new HttpRequestMessage(HttpMethod.Post, projectItemQuery);

@@ -53,7 +53,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIApp v1"));
 }
 app.UseHttpsRedirection();
 app.UseStaticFiles();

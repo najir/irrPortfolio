@@ -21,6 +21,10 @@
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="more.xunit.runner.visualstudio" Version="2.3.1">
@@ -29,7 +33,9 @@
     </PackageReference>
     <PackageReference Include="MSTest.TestAdapter" Version="3.0.2" />
     <PackageReference Include="MSTest.TestFramework" Version="3.0.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
     <PackageReference Include="xunit" Version="2.4.2" />
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +43,70 @@
     <Content Remove="$(SpaRoot)**" />
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="clientapp\src\App.css" />
+    <None Remove="clientapp\src\App.js" />
+    <None Remove="clientapp\src\components\BlogFetch.js" />
+    <None Remove="clientapp\src\components\BookFetch.js" />
+    <None Remove="clientapp\src\components\GitFetch.js" />
+    <None Remove="clientapp\src\components\InfoWidget.js" />
+    <None Remove="clientapp\src\components\NavBar.js" />
+    <None Remove="clientapp\src\components\PortfolioFetch.js" />
+    <None Remove="clientapp\src\components\ProjectFetch.js" />
+    <None Remove="clientapp\src\components\SkillsComp.js" />
+    <None Remove="clientapp\src\components\styles\blogfetch.css" />
+    <None Remove="clientapp\src\components\styles\book.css" />
+    <None Remove="clientapp\src\components\styles\git.css" />
+    <None Remove="clientapp\src\components\styles\infowidget.css" />
+    <None Remove="clientapp\src\components\styles\navbar.css" />
+    <None Remove="clientapp\src\components\styles\portfoliofetch.css" />
+    <None Remove="clientapp\src\components\styles\project.css" />
+    <None Remove="clientapp\src\components\styles\skills.css" />
+    <None Remove="clientapp\src\components\styles\timeline.css" />
+    <None Remove="clientapp\src\components\Timeline.js" />
+    <None Remove="clientapp\src\index.css" />
+    <None Remove="clientapp\src\index.js" />
+    <None Remove="clientapp\src\pages\About.js" />
+    <None Remove="clientapp\src\pages\Blog.js" />
+    <None Remove="clientapp\src\pages\Home.js" />
+    <None Remove="clientapp\src\pages\Portfolio.js" />
+    <None Remove="clientapp\src\pages\styles\about.css" />
+    <None Remove="clientapp\src\pages\styles\blog.css" />
+    <None Remove="clientapp\src\pages\styles\home.css" />
+    <None Remove="clientapp\src\pages\styles\portfolio.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="clientapp\src\App.css" />
+    <Content Include="clientapp\src\App.js" />
+    <Content Include="clientapp\src\components\BlogFetch.js" />
+    <Content Include="clientapp\src\components\BookFetch.js" />
+    <Content Include="clientapp\src\components\GitFetch.js" />
+    <Content Include="clientapp\src\components\InfoWidget.js" />
+    <Content Include="clientapp\src\components\NavBar.js" />
+    <Content Include="clientapp\src\components\PortfolioFetch.js" />
+    <Content Include="clientapp\src\components\ProjectFetch.js" />
+    <Content Include="clientapp\src\components\SkillsComp.js" />
+    <Content Include="clientapp\src\components\styles\blogfetch.css" />
+    <Content Include="clientapp\src\components\styles\book.css" />
+    <Content Include="clientapp\src\components\styles\git.css" />
+    <Content Include="clientapp\src\components\styles\infowidget.css" />
+    <Content Include="clientapp\src\components\styles\navbar.css" />
+    <Content Include="clientapp\src\components\styles\portfoliofetch.css" />
+    <Content Include="clientapp\src\components\styles\project.css" />
+    <Content Include="clientapp\src\components\styles\skills.css" />
+    <Content Include="clientapp\src\components\styles\timeline.css" />
+    <Content Include="clientapp\src\components\Timeline.js" />
+    <Content Include="clientapp\src\index.css" />
+    <Content Include="clientapp\src\index.js" />
+    <Content Include="clientapp\src\pages\About.js" />
+    <Content Include="clientapp\src\pages\Blog.js" />
+    <Content Include="clientapp\src\pages\Home.js" />
+    <Content Include="clientapp\src\pages\Portfolio.js" />
+    <Content Include="clientapp\src\pages\styles\about.css" />
+    <Content Include="clientapp\src\pages\styles\blog.css" />
+    <Content Include="clientapp\src\pages\styles\home.css" />
+    <Content Include="clientapp\src\pages\styles\portfolio.css" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
