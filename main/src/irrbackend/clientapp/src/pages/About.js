@@ -44,7 +44,7 @@ class AboutPage extends React.Component{
                   <p>Here you can find contact info below, a few details about me personally, and an overview time-line of my experience</p>
                   <div className="contact-info">
                     {this.contactList.map((value)=>{
-                      if(value[3]){return <div className="d-flex align-items-center"><i className={value[2]}></i><h6 className="contact-item">{value[0]}: <a href={value[1]}>{value[1]}</a> </h6></div>}
+                      if(value[3]){return <div className="d-flex align-items-center"><i className={value[2]}></i><h6 className="contact-item">{value[0]}: <a href={value[1]} target="_blank" rel="noopener noreferrer">{value[1]}</a> </h6></div>}
                       if(value[2]){return <div className="d-flex align-items-center"><i className={value[2]}></i><h6 className="contact-item">{value[0]}: {value[1]} </h6></div> }
                       else{ return <h6 className="contact-item">{value[0]}: {value[1]}</h6> }
                     })}

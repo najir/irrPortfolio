@@ -24,7 +24,6 @@ class HomePage extends React.Component {
 
                 <div id="greybox" className="w-50">
                   <p>Built with ASP.NET and React, this website contains a host of revelant features such as: </p>
-                  <p>Note 3/20/23: Current data is not pulling GraphQL data(Font-end fetch incomplete.) and Blog is being seperated into another project.</p>
                   <br />
                   <div className = "d-flex flex-column">
                     <div className = "d-flex align-items-start">
@@ -44,10 +43,6 @@ class HomePage extends React.Component {
                       <p>Dynamic webpages via Bootstrap and REACT's virtual DOM updates</p>
                     </div>
                     <div className = "d-flex align-items-start">
-                      <i class="bi bi-blockquote-right font-small me-1 mb-1"></i>
-                      <p>A fully featured blog</p>
-                    </div>
-                    <div className = "d-flex align-items-start">
                       <i class="bi bi-file-earmark-person font-small me-1 mb-1"></i>
                       <p>Integrated resume via a resume JSON schema</p>
                     </div>
@@ -56,7 +51,7 @@ class HomePage extends React.Component {
                 </div>
 
                 <div className="contactbar">
-                  <a id="contactlink"href="/resume">Head over to my resume</a>
+                  <a id="contactlink" href="/resume" target="_blank" rel="noopener noreferrer">Head over to my resume</a>
                   <i className="bi bi-arrow-right-circle float-right font-small"></i>
                 </div>
                 

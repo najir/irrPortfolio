@@ -81,7 +81,7 @@ class ProjectFetch extends React.Component{
                     </div>
                   </div>
                 </div>
-                <p>View the source code at it's <a href={this.projectData.link}>GitHub</a> link</p>
+                <p>View the source code at it's <a href={this.projectData.link} target="_blank" rel="noopener noreferrer">GitHub</a> link</p>
               </div>
             </div>    
         )
