@@ -32,6 +32,9 @@
     flex-direction: row;
     margin-top: -30px;
 }
+.featured-details a{
+    border: none;
+}
 .featured-details *{
     padding: 0 3px 0 3px;
     border-right: 1px solid rgb(var(--theme1-border));
@@ -40,4 +43,14 @@
 .bar-top:hover > span{
     visibility: visible;
     opacity: 1;
+}
+.project-image-card{
+    filter: drop-shadow(8px 8px 1px black);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    height: 375px;
+    width: 100%;
 }

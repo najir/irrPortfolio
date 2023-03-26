@@ -1,17 +1,19 @@
 import "./styles/project.css";
 import React from 'react';
 import { createRef } from 'react';
+import launcherzImage from "../img/launcherz.png"
 
 class ProjectFetch extends React.Component{
   constructor(props){
     super(props);
     this.projectData={
       title: "LauncherZ",
-      language: "c++",
-      startdate: "02/09/2023",
-      lastupdate: "02/23/2023",
-      description: "A front end GUI replacement launcher to pair with an existing codebase for Monster Hunter Frontiers launcher",
-      link: "https://github.com/najir/launcherZ"
+        image: `url(${launcherzImage})`,
+        language: "Python",
+        startdate: "02/09/2023",
+        lastupdate: "02/23/2023",
+        description: "Python based Pyside 6 QT project that implements a custom game launcher to an existing game. Allows users to add their own private servers. Provides server owners to pass along detailed information, images for advertisements and updates, an accessable rss feed for news, and outside links for install instructions.",
+        link: "https://github.com/najir/launcherZ"
     }
     this.exampleData = [
       0,1,2,3,4,3,3,7,8,4,3
@@ -58,14 +60,16 @@ class ProjectFetch extends React.Component{
                 </div>
 
                 <div className="d-flex">
+                  <div className="project-image-card" style={{backgroundImage: this.projectData.image}} />
                   <div>
                     <h2>{this.projectData.title}</h2>
                     <div className="featured-details">
+                      <p><a href={this.projectData.link} target="_blank" rel="noopener noreferrer">GitHub</a></p>
                       <p>Primary Language: {this.projectData.language}</p>
                       <p>Start Date: {this.projectData.startdate}</p>
                       <p>Last Updated: {this.projectData.lastupdate}</p>
                     </div>
-                    <p>{this.projectData.description}</p>                    
+                    <p id="greybox" >{this.projectData.description}</p>     
 
                   </div>
 
@@ -81,7 +85,6 @@ class ProjectFetch extends React.Component{
                     </div>
                   </div>
                 </div>
-                <p>View the source code at it's <a href={this.projectData.link} target="_blank" rel="noopener noreferrer">GitHub</a> link</p>
               </div>
             </div>    
         )
