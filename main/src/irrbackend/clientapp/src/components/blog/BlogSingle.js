@@ -1,10 +1,17 @@
-import "./styles/blogfetch.css";
+import "./styles/bloglist.css";
 import React from 'react';
 import { createRef } from 'react';
 
-class BlogFetch extends React.Component{
+class BlogSingle extends React.Component{
   constructor(props){
     super(props);
+    this.testBLog = {
+      title: "Test Blog",
+      summary: "This is a test of an input blog that is pulled from my backend server",
+      author: "Isaac Perks",
+      postdate: "5/12/2022",
+      isprivate: "false"
+    };
     this.element = createRef();
     this.onScroll = this.onScroll.bind(this);
     this.setScroll = this.setScroll.bind(this);
@@ -39,14 +46,18 @@ class BlogFetch extends React.Component{
     render() {
         return (
             <div ref={this.element} className={this.state.scroll ? "transition w-50" : "w-50 opacity-0"} id="greybox">
-              <div className="d-flex p-2 justify-content-end align-items-end">
-                <h5 id="textboxmain" className="float-end m-2">Recent Blog</h5>
-                <i className="bi bi-blockquote-left font-large"></i>
+              <div className="blog-single">
+                <h2>{this.testBLog.title}</h2>
+                <div>
+                <h5>{this.testBLog.author}</h5>
+                <h6>{this.testBLog.postdate}</h6>
+                </div>
+                <p>{this.testBLog.summary}</p>
+                <button>Read More</button>
               </div>
-              <p>My last blog post can be seen below</p>
             </div>
         )
     }
 }
 
-export default BlogFetch;
+export default BlogSingle;

@@ -1,6 +1,7 @@
 import './styles/blog.css';
 import React from 'react';
 import InfoWidget from '../components/InfoWidget';
+import BlogListWidget from "../components/blog/BlogList";
 
 class BlogPage extends React.Component{
     constructor(props){
@@ -19,6 +20,8 @@ class BlogPage extends React.Component{
                     <h1 className="text-start">Blog is currently seperated to a new project due to complexity</h1>
                   </div>
                 </div></div>
+                <button>New Post</button>
+                <BlogListWidget />
             </div>
         )
     }

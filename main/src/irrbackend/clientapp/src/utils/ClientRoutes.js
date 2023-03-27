@@ -4,6 +4,7 @@ import AboutPage from '../pages/About';
 import BlogPage from '../pages/Blog';
 import PortfolioPage from '../pages/Portfolio';
 import IrrResume from '../components/resume/IrrResume';
+import NewBlog from "../pages/NewBlog";
 
 const ClientRoutes = [
     {
@@ -25,6 +26,11 @@ const ClientRoutes = [
     {
         path: '/resume',
         page: <IrrResume />
+    },
+    {
+        requireAuth: true,
+        path: '/blog/create',
+        page: <NewBlog />
     },
     ...ApiAuthorzationRoutes
 ]

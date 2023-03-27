@@ -71,9 +71,9 @@ class NavBar extends React.Component{
                         <NavItem>
                             <NavLink className={this.state.activeLink === 'portfolio' ? 'active-link' : ""} onClick={()=>{this.setActiveLink('portfolio')}} tag={Link} to="/portfolio">Portfolio</NavLink>
                         </NavItem>
-                        {/*<NavItem>
+                        {<NavItem>
                             <NavLink className={this.state.activeLink === 'blog' ? 'active-link' : ""} onClick={()=>{this.setActiveLink('blog')}} tag={Link} to="/blog">Blog</NavLink>
-                        </NavItem>*/}
+                        </NavItem>}
                         <NavItem>
                             <NavLink className={this.state.activeLink === 'resume' ? 'active-link' : ""} onClick={()=>{this.setActiveLink('resume')}} tag={Link} to="/resume">Resume</NavLink>
                         </NavItem>

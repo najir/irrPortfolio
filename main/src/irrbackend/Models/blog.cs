@@ -13,8 +13,9 @@ namespace irrbackend.Models
         public string? Title { get; set; }
         public string? Summary { get; set; }
         public string? Body { get; set; }
-        [Required]
-        public string? Url { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime PostDate { get; set; }
 
+        public bool IsPrivate { get; set; }
     }
 }

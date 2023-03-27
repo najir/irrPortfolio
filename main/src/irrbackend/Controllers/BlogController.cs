@@ -1,16 +1,16 @@
 using irrbackend.DAL;
 using irrbackend.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace irrbackend.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
     public class BlogController : ControllerBase
     {
         private readonly ILogger<BlogController> _logger;
+
         private readonly WebDbContext _context;
 
         public BlogController(ILogger<BlogController> logger, WebDbContext context)
@@ -18,63 +18,64 @@ namespace irrbackend.Controllers
             _logger = logger;
             _context = context;
         }
-        [Authorize(Policy = "RequireAdministratorRole")]
-        [HttpPost]
-        public async Task<IActionResult> PostBlog(Blog blog)
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Route("/error")]
+        public IActionResult HandleError() =>
+            Problem();
+        [HttpGet]
+        public async Task<IActionResult> LatestBlog()
         {
-            if (!ModelState.IsValid)
+            var latestBlog = await _context.Blogs.Where(b =>b.IsPrivate==false).LastOrDefaultAsync();
+
+            if(latestBlog == null)
             {
-                return BadRequest(ModelState);
+                return NotFound();
             }
-            await _context.Blogs.AddAsync(blog);
-            return CreatedAtAction(nameof(GetBlog), new { id = blog.Id }, blog);
+            return Ok(latestBlog);
         }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetBlog(int id)
+
+        [HttpGet]
+        public async Task<IActionResult> ListBlog()
         {
-            Blog? blog = null;
-            try
+            var listBlog = await _context.Blogs.Where(b=>b.IsPrivate==false).ToListAsync() ;
+
+            if (listBlog == null)
             {
-                blog = await _context.Blogs
-                .SingleAsync(b => b.Id == id);
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _logger.LogError($"An Error has occured : {ex}");
-            }
-            if (blog is null)
-            {
-                return NotFound("Book was not found");
-            }
-            else
-            {
-                return Ok(blog);
-            }
+            return Ok(listBlog);
         }
         [HttpGet]
-        public async Task<IActionResult> GetBlog()
+        public async Task<IActionResult> GetBlogByDate(DateTime date)
         {
-            Blog[] blogs = { };
-            try
+            var getBlog = await _context.Blogs.SingleAsync(b => b.PostDate == date);
+
+            if(getBlog == null)
             {
-                blogs = await _context.Blogs
-                    .ToArrayAsync();
+                return NotFound();
             }
-            catch (Exception ex)
+            return Ok(getBlog);
+
+        }
+        public async Task<IActionResult> GetBlogById(int id)
+        {
+            var getBlog = await _context.Blogs.FindAsync(id);
+
+            if (getBlog == null)
             {
-                _logger.LogError($"An Error has occurd : {ex}");
+                return NotFound();
             }
-            if (!blogs.Any())
-            {
-                return NotFound("No Books were found");
-            }
-            else
-            {
-                return Ok(blogs);
-            }
+            return Ok(getBlog);
+
+        }
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> PostBlog(Blog blog)
+        {
+            await _context.Blogs.AddAsync(blog);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(PostBlog), new { id = blog.Id }, blog);
         }
     }
-
-
-
 }

@@ -1,7 +1,7 @@
 import './styles/home.css';
 import GitFetch from "../components/GitFetch";
 import BookFetch from "../components/BookFetch";
-import BlogFetch from "../components/BlogFetch";
+import BlogRecentWidget from "../components/blog/BlogRecent";
 import ProjectFetch from "../components/ProjectFetch";
 import InfoWidget from "../components/InfoWidget";
 import React from 'react';
@@ -62,7 +62,7 @@ class HomePage extends React.Component {
                 <div id="pagefill"></div>
                 <div className="bookandblog">
                     <BookFetch />
-                    <BlogFetch />
+                    <BlogRecentWidget />
                     <div id="pagefill"></div>
                 </div>
                 <div id="pagefill"></div>
