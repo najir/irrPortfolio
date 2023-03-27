@@ -172,7 +172,6 @@ const MenuBar = ({ editor }) => {
 const BlogEditor = () => {
     const editor = useEditor({
         extensions: [
-        Color.configure({ types: [TextStyle.name, ListItem.name] }),
         TextStyle.configure({ types: [ListItem.name] }),
         StarterKit.configure({
             bulletList: {
