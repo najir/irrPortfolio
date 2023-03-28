@@ -16,9 +16,6 @@ class BlogPage extends React.Component{
                 <div id="titleimage"><div className="transition-in">
                   <InfoWidget text="My Blog"/>
                   <div id="pagefill"></div>
-                  <div id="greybox">
-                    <h1 className="text-start">Blog is currently seperated to a new project due to complexity</h1>
-                  </div>
                 </div></div>
                 <button>New Post</button>
                 <BlogListWidget />

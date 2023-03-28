@@ -50,17 +50,16 @@ class BlogList extends React.Component{
   }
     render() {
         return (
-            <div ref={this.element} className={this.state.scroll ? "transition w-50 blog-single" : "w-50 opacity-0"}>
+            <div ref={this.element} className={this.state.scroll ? "transition blog-list-container" : " opacity-0 blog-list-container"}>
               {this.testBLogs.map((data) =>{
-                return <div className="blog-single">
-                  <h2>{data.title}</h2>
-                  <div>
-                    <h5>{data.author}</h5>
-                    <h6>{data.postdate}</h6>
-                  </div>
-                  <p>{data.summary}</p>
-                  <button>Read More</button>
-                </div>
+                return <div className="blog-list-card"> <div className="blog-list">
+                    <h2>{data.title}</h2>
+                    <h6 className="user">{data.author}</h6>
+                    <hr />
+                    <p>{data.summary}</p>
+                    <h6 className="date">Posted on {data.postdate}</h6>
+                    <button>Read More</button>
+              </div></div>
               })}
             </div>
         )

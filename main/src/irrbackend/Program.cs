@@ -17,7 +17,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
 builder.Services.AddDbContext<UserDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<UserDbContext>();
 
 builder.Services.AddIdentityServer()

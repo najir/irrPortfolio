@@ -1,0 +1,51 @@
+.blog-recent{
+    text-align: left;
+}
+.blog-card > i{
+    position: absolute;
+    margin-top: -5px; 
+}
+.blog-recent > button {
+    display: flex;
+    height: 25px;
+    align-items: center;
+    float: left;
+    background-color: rgb(var(--theme1-accent2));
+    border-color: rgb(var(--theme1-border));
+    color: rgb(var(--theme1-color))
+
+}
+.blog-recent > button:hover {
+    transform: scale(105%);
+}
+.blog-recent > button:active{
+    transform: scale(100%);
+}
+.blog-recent  > h2{
+    margin: 0;
+    padding: 0 0 5px 10px;
+    text-align: right;
+}
+.blog-recent > .user {
+    background-color: rgb(var(--theme1-accent2));
+    float: right;    
+    width: max-content;
+    padding: 3px 8px 3px 8px;
+    border-radius: 12px;
+}
+.blog-recent > .date{
+    width: max-content;
+    padding: 0;
+    margin-bottom: 5px;
+    color: rgb(var(--theme1-accent));
+}
+.blog-recent > hr{
+    margin: 0;  
+    width: 85%;
+}
+.blog-recent-card{
+    background-color: rgba(0, 0, 0, .5);
+    border-bottom: 3px solid rgb(var(--theme1-border));
+    margin: 20px 15px 25px 15px;
+    padding: 15px;
+}
