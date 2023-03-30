@@ -1,9 +1,9 @@
-import './styles/blog.css';
+import './styles/newblog.css';
 import React from 'react';
 import InfoWidget from '../components/InfoWidget';
 import BlogEditorWidget from "../components/blog/BlogEditor";
 
-class BlogPage extends React.Component{
+class NewBlog extends React.Component{
     constructor(props){
         super(props)
         this.state ={
@@ -55,4 +55,4 @@ class BlogPage extends React.Component{
     }
 }
 
-export default BlogPage
+export default NewBlog

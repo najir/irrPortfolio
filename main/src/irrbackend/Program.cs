@@ -8,6 +8,7 @@ using irrbackend.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
 using Duende.IdentityServer.EntityFramework.Entities;
+using Microsoft.Extensions.FileSystemGlobbing.Internal.Patterns;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +18,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
 builder.Services.AddDbContext<UserDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<UserDbContext>();
 
 builder.Services.AddIdentityServer()
@@ -53,7 +54,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIApp v1"));
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger", "APIApp v1"));
 }
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -63,10 +64,9 @@ app.UseAuthentication();
 app.UseIdentityServer();
 app.UseAuthorization();
 
-
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=home}/{action=Index}/");
+    pattern: "{controller}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.MapFallbackToFile("index.html");

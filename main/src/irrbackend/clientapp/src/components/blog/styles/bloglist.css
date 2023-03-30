@@ -43,7 +43,7 @@
     margin: 0;  
     width: 85%;
 }
-.blog--list-card{
+.blog-list-card{
     background-color: rgba(0, 0, 0, .5);
     border: 3px solid rgb(var(--theme1-border));
     margin: 20px 15px 25px 15px;

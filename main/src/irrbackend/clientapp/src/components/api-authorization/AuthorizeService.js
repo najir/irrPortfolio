@@ -5,11 +5,18 @@ export class AuthorizeService {
   _callbacks = [];
   _nextSubscriptionId = 0;
   _user = null;
-  _isAuthenticated = false;
+  _is
+
+
+
+
+
+
+      = false;
 
   // By default pop ups are disabled because they don't work properly on Edge.
   // If you want to enable pop up authentication simply set this flag to false.
-  _popUpDisabled = true;
+  _popUpDisabled = false;
 
   async isAuthenticated() {
     const user = await this.getUser();
@@ -179,12 +186,15 @@ export class AuthorizeService {
       return;
     }
 
-    let response = await fetch(ApplicationPaths.ApiAuthorizationClientConfigurationUrl);
+    console.log(ApplicationPaths.ApiAuthorizationClientConfigurationUrl);
+    let response = await fetch(`${process.env.PUBLIC_URL}${ApplicationPaths.ApiAuthorizationClientConfigurationUrl}`);
     if (!response.ok) {
       throw new Error(`Could not load settings for '${ApplicationName}'`);
     }
+    console.log(response);
 
     let settings = await response.json();
+    console.log(settings);
     settings.automaticSilentRenew = true;
     settings.includeIdTokenInSilentRenew = true;
     settings.userStore = new WebStorageStateStore({

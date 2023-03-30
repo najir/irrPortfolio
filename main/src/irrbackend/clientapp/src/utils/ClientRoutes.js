@@ -28,8 +28,8 @@ const ClientRoutes = [
         page: <IrrResume />
     },
     {
-        requireAuth: true,
-        path: '/blog/create',
+        requireAuth : true,
+        path: '/createblog',
         page: <NewBlog />
     },
     ...ApiAuthorzationRoutes
