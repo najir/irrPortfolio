@@ -1,55 +1,17 @@
-import ListItem from '@tiptap/extension-list-item'
-import TextStyle from '@tiptap/extension-text-style'
-import { useEditor, EditorContent } from '@tiptap/react'
-import StarterKit from '@tiptap/starter-kit'
+import ListItem from '@tiptap/extension-list-item';
+import TextStyle from '@tiptap/extension-text-style';
+import TextAlign from '@tiptap/extension-text-align';
+import { BubbleMenu, useEditor, EditorContent } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
+import React from 'react';
 import "./styles/blogeditor.css"
 
 const MenuBar = ({ editor }) => {
     if (!editor) {
       return null
     }
-  
     return (
       <>
-        <button
-          onClick={() => editor.chain().focus().toggleBold().run()}
-          disabled={
-            !editor.can()
-              .chain()
-              .focus()
-              .toggleBold()
-              .run()
-          }
-          className={editor.isActive('bold') ? 'is-active' : ''}
-        >
-          bold
-        </button>
-        <button
-          onClick={() => editor.chain().focus().toggleItalic().run()}
-          disabled={
-            !editor.can()
-              .chain()
-              .focus()
-              .toggleItalic()
-              .run()
-          }
-          className={editor.isActive('italic') ? 'is-active' : ''}
-        >
-          italic
-        </button>
-        <button
-          onClick={() => editor.chain().focus().toggleStrike().run()}
-          disabled={
-            !editor.can()
-              .chain()
-              .focus()
-              .toggleStrike()
-              .run()
-          }
-          className={editor.isActive('strike') ? 'is-active' : ''}
-        >
-          strike
-        </button>
         <button
           onClick={() => editor.chain().focus().toggleCode().run()}
           disabled={
@@ -216,10 +178,62 @@ const BlogEditor = () => {
         `,
     })
 
+    if (!editor) {
+      return null
+    }
+
     return (
-        <div>
-        <MenuBar editor={editor} />
-        <EditorContent editor={editor} />
+        <div className="blog-editor">
+          <div className="blog-editor-menu">
+            <MenuBar  editor={editor} />
+          </div>
+          <BubbleMenu className="bubbleMenu" editor={editor} tippyOptions={{ duration: 100 }}>
+          <div className="text-align-buttons">
+              <button
+                onClick={() => editor.chain().focus().setTextAlign('left').run()}
+                className={editor.isActive({ textAlign: 'left' }) ? 'is-active' : ''}
+              >
+                left
+              </button>
+              <button
+                onClick={() => editor.chain().focus().setTextAlign('center').run()}
+                className={editor.isActive({ textAlign: 'center' }) ? 'is-active' : ''}
+              >
+                center
+              </button>
+              <button
+                onClick={() => editor.chain().focus().setTextAlign('right').run()}
+                className={editor.isActive({ textAlign: 'right' }) ? 'is-active' : ''}
+              >
+                right
+              </button>
+              <button
+                onClick={() => editor.chain().focus().setTextAlign('justify').run()}
+                className={editor.isActive({ textAlign: 'justify' }) ? 'is-active' : ''}
+              >
+                justify
+              </button>
+            </div>
+            <button
+              onClick={() => editor.chain().focus().toggleBold().run()}
+              className={editor.isActive('bold') ? 'is-active' : ''}
+            >
+              bold
+            </button>
+            <button
+              onClick={() => editor.chain().focus().toggleItalic().run()}
+              className={editor.isActive('italic') ? 'is-active' : ''}
+            >
+              italic
+            </button>
+            <button
+              onClick={() => editor.chain().focus().toggleStrike().run()}
+              className={editor.isActive('strike') ? 'is-active' : ''}
+            >
+              strike
+            </button>
+          </BubbleMenu>
+          <EditorContent editor={editor} />
         </div>
     )
     }

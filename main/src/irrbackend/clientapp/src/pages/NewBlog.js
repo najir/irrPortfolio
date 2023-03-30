@@ -40,16 +40,16 @@ class NewBlog extends React.Component{
                 <div id="titleimage"><div className="transition-in">
                   <InfoWidget text="New Post"/>
                 </div></div>
-                <div className="input-wrapper">
-                    <h3>Title: </h3>
+                <div className="create-blog">
+                  <div className="d-flex gap-3 m-3">
+                    <h5>Title: </h5>
                     <input type="text" name="title" className="title-input" value={this.state.title} onChange={this.inputChange}></input>
-                </div>
-                <div className="input-wrapper">
-                    <h6>Description: </h6>
+                    <h5>Description: </h5>
                     <input type="text" name="description" className="description-input" value={this.state.description} onChange={this.inputChange}></input>
+                  </div>
+                  <BlogEditorWidget />
+                  <button onClick={this.submitBlog} className="post-button">Post Blog</button>
                 </div>
-                <BlogEditorWidget />
-                <button onClick={this.submitBlog} className="post-button">Post Blog</button>
             </div>
         )
     }

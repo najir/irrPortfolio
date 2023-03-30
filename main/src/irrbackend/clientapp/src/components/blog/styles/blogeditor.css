@@ -2,6 +2,59 @@
 .ProseMirror *{
   margin-top: 0.75em;
 }
+.bubbleMenu > *{
+      margin: 3px;
+}
+.text-align-buttons{
+      display: flex;
+      gap: 1px;
+      background-color: beige;
+      border: 1px solid black;
+      margin-bottom: 5px;
+      padding: 3px;
+
+}
+.blog-editor{
+      text-align: left;
+      color: black;
+      background-color: black;
+      margin: 10px;     
+      border-radius: 25px;
+      background-color: rgba(250, 250,250, 1);
+      padding: 20px 10px 10px 10px;
+}
+.blog-editor-menu{
+      background-color: black;
+      border: 3px solid black;
+      padding: 10px;
+      border-radius: 10px;
+}
+.blog-editor-menu > button{
+      background-color: white;
+      color: black;
+      border-radius: 10px;
+      margin: 1px;
+      height: 30px;
+
+}
+.blog-editor-menu > button:hover{
+      background-color: beige;
+}
+.blog-editor-menu > button:active{
+      background-color:rgb(200, 200,200);
+}
+.ProseMirror{
+      background-color: rgba(250, 250,250, 1);
+      border: 3px solid black;
+      padding: 20px 20px 400px 20px;
+      border-radius: 25px;
+      margin-top: 10px;
+
+
+}
+.ProseMirror:focus{
+      outline: none;
+}
 
 .ProseMirror ul, 
 .ProseMirror ol {
