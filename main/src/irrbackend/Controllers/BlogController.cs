@@ -6,7 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace irrbackend.Controllers
 {
-    [Route("api/[controller]")]
+    [AllowAnonymous]
+    [ApiController]
+    [Route("api/[controller]/[action]")]
     public class BlogController : ControllerBase
     {
         private readonly ILogger<BlogController> _logger;
@@ -23,6 +25,7 @@ namespace irrbackend.Controllers
         public IActionResult HandleError() =>
             Problem();
         [HttpGet]
+        [ActionName("latestblog")]
         public async Task<IActionResult> LatestBlog()
         {
             var latestBlog = await _context.Blogs.Where(b =>b.IsPrivate==false).LastOrDefaultAsync();
@@ -33,8 +36,8 @@ namespace irrbackend.Controllers
             }
             return Ok(latestBlog);
         }
-
         [HttpGet]
+        [Route("api/[controller]/listblog")]
         public async Task<IActionResult> ListBlog()
         {
             var listBlog = await _context.Blogs.Where(b=>b.IsPrivate==false).ToListAsync() ;
@@ -57,6 +60,7 @@ namespace irrbackend.Controllers
             return Ok(getBlog);
 
         }
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetBlogById(int id)
         {
             var getBlog = await _context.Blogs.FindAsync(id);

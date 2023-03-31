@@ -52,7 +52,7 @@ class BlogList extends React.Component{
         return (
             <div ref={this.element} className={this.state.scroll ? "transition blog-list-container" : " opacity-0 blog-list-container"}>
               {this.testBLogs.map((data) =>{
-                return <div className="blog-list-card"> <div className="blog-list">
+                return <div className="blog-list-card"><div className="blog-list">
                     <h2>{data.title}</h2>
                     <h6 className="user">{data.author}</h6>
                     <hr />

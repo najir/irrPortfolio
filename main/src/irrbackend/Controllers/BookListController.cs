@@ -6,8 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace irrbackend.Controllers
 {
+	[AllowAnonymous]
 	[ApiController]
-	[Route("api/[controller]")]
+	[Route("api/[controller]/[action]")]
 	public class BookListController : ControllerBase
 	{
 		private readonly ILogger<BookListController> _logger;

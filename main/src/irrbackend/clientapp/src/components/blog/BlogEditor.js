@@ -3,7 +3,8 @@ import TextStyle from '@tiptap/extension-text-style';
 import TextAlign from '@tiptap/extension-text-align';
 import { BubbleMenu, useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import React from 'react';
+import React, {useState} from 'react';
+import authService from '../api-authorization/AuthorizeService'
 import "./styles/blogeditor.css"
 
 const MenuBar = ({ editor }) => {
@@ -131,7 +132,7 @@ const MenuBar = ({ editor }) => {
     )
   }
   
-const BlogEditor = () => {
+const BlogEditor = (props) => {
     const editor = useEditor({
         extensions: [
         TextStyle.configure({ types: [ListItem.name] }),
@@ -177,6 +178,45 @@ const BlogEditor = () => {
         </blockquote>
         `,
     })
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+
+    async function submitBlog(editor) {
+      var submitTitle = title;
+      var submitDescription = description;
+      var error = "";
+      var date = new Date();
+      var jsonData = editor.getJSON();
+      var postData = JSON.stringify({
+        Title: submitTitle,
+        Summary: submitDescription,
+        Body: jsonData,
+        PostDate: date,
+        IsPrivate: false 
+      });
+      console.log(postData);
+
+      if(submitTitle.length < 4 || submitTitle.length > 18){
+          error += "Title must be 4 to 18 characters long \r\n";
+      } if(submitDescription.length > 128){
+          error += "Description must be less than 64 characters long \r\n";
+      }
+      if(error){
+          alert(error);
+      }else{
+        const token = await authService.getAccessToken();
+        await fetch(`${process.env.PUBLIC_URL}/api/blog/postblog`, {
+          method: "post",
+          headers: !token ? {} : { 'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json', 
+          },
+          body: postData
+        }).then((response) => console.log(response))
+      }
+  }
+
+
 
     if (!editor) {
       return null
@@ -184,6 +224,12 @@ const BlogEditor = () => {
 
     return (
         <div className="blog-editor">
+          <div className="d-flex gap-3 m-3">
+            <h5>Title: </h5>
+            <input type="text" name="title" className="title-input" onChange={e => setTitle(e.target.value)}></input>
+            <h5>Description: </h5>
+            <input type="text" name="description" className="description-input" onChange={e => setDescription(e.target.value)}></input>
+          </div>
           <div className="blog-editor-menu">
             <MenuBar  editor={editor} />
           </div>
@@ -234,6 +280,7 @@ const BlogEditor = () => {
             </button>
           </BubbleMenu>
           <EditorContent editor={editor} />
+          <button onClick={()=>submitBlog(editor)} className="post-button">Post Blog</button>
         </div>
     )
     }

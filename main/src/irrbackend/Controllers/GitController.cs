@@ -3,10 +3,13 @@ using Castle.Components.DictionaryAdapter.Xml;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace irrbackend.Controllers
 {
-	[Route("api/[controller]")]
+    [AllowAnonymous]
+    [ApiController]
+	[Route("api/[controller]/[action]")]
 	public class GitController : ControllerBase
 	{
 		private readonly ILogger<GitController> _logger;
