@@ -8,7 +8,7 @@ using irrbackend.DAL;
 
 #nullable disable
 
-namespace irrbackend.Migrations
+namespace irrbackend.Migrations.WebDb
 {
     [DbContext(typeof(WebDbContext))]
     partial class WebDbContextModelSnapshot : ModelSnapshot
@@ -30,7 +30,8 @@ namespace irrbackend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Body")
+                    b.Property<string>("BlogContent")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsPrivate")
@@ -43,6 +44,7 @@ namespace irrbackend.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

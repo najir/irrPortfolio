@@ -185,16 +185,9 @@ const BlogEditor = (props) => {
       var submitTitle = title;
       var submitDescription = description;
       var error = "";
-      var date = new Date();
+      var date = new Date().toLocaleDateString();
       var jsonData = editor.getJSON();
-      var postData = JSON.stringify({
-        Title: submitTitle,
-        Summary: submitDescription,
-        Body: jsonData,
-        PostDate: date,
-        IsPrivate: false 
-      });
-      console.log(postData);
+      jsonData = JSON.stringify(jsonData.content);
 
       if(submitTitle.length < 4 || submitTitle.length > 18){
           error += "Title must be 4 to 18 characters long \r\n";
@@ -206,13 +199,19 @@ const BlogEditor = (props) => {
       }else{
         const token = await authService.getAccessToken();
         await fetch(`${process.env.PUBLIC_URL}/api/blog/postblog`, {
-          method: "post",
+          method: "POST",
           headers: !token ? {} : { 'Authorization': `Bearer ${token}`,
             'Accept': 'application/json',
             'Content-Type': 'application/json', 
           },
-          body: postData
-        }).then((response) => console.log(response))
+          body:JSON.stringify({
+            "title": submitTitle,
+            "summary": submitDescription,
+            "blogcontent": jsonData,
+            "postdate": date,
+            "isprivate": false 
+          })
+        })
       }
   }
 

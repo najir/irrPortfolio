@@ -187,7 +187,7 @@ export class AuthorizeService {
     }
 
     console.log(ApplicationPaths.ApiAuthorizationClientConfigurationUrl);
-    let response = await fetch(`${process.env.PUBLIC_URL}${ApplicationPaths.ApiAuthorizationClientConfigurationUrl}`);
+    let response = await fetch(`${process.env.PUBLIC_URL}/${ApplicationPaths.ApiAuthorizationClientConfigurationUrl}`);
     if (!response.ok) {
       throw new Error(`Could not load settings for '${ApplicationName}'`);
     }

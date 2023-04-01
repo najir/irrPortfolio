@@ -35,7 +35,7 @@ builder.Services.AddHttpClient("github", c =>
     c.DefaultRequestHeaders.Add("User-Agent", "Najir-Backend");
 
 });
-
+builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("RequireAdministratorRole",
@@ -45,6 +45,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddControllers().AddNewtonsoftJson();
 
 
 var app = builder.Build();

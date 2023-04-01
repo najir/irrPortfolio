@@ -3,6 +3,7 @@ using irrbackend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace irrbackend.Controllers
 {
@@ -28,7 +29,7 @@ namespace irrbackend.Controllers
         [ActionName("latestblog")]
         public async Task<IActionResult> LatestBlog()
         {
-            var latestBlog = await _context.Blogs.Where(b =>b.IsPrivate==false).LastOrDefaultAsync();
+            var latestBlog = await _context.Blogs.Where(b =>b.IsPrivate==false).OrderBy(s => s.Id).LastOrDefaultAsync();
 
             if(latestBlog == null)
             {
@@ -37,7 +38,6 @@ namespace irrbackend.Controllers
             return Ok(latestBlog);
         }
         [HttpGet]
-        [Route("api/[controller]/listblog")]
         public async Task<IActionResult> ListBlog()
         {
             var listBlog = await _context.Blogs.Where(b=>b.IsPrivate==false).ToListAsync() ;
@@ -76,7 +76,23 @@ namespace irrbackend.Controllers
         [Authorize]
         public async Task<IActionResult> PostBlog(Blog blog)
         {
-            await _context.Blogs.AddAsync(blog);
+            string json = string.Empty;
+            using (var stream = new MemoryStream())
+            {
+                await JsonSerializer.SerializeAsync(stream, blog.BlogContent, blog.BlogContent.GetType());
+                stream.Position = 0;
+                using var reader = new StreamReader(stream);
+                json = await reader.ReadToEndAsync();
+            }
+            await _context.Blogs.AddAsync(new Blog()
+            {
+                Title = blog.Title.ToString(),
+                Summary = blog.Summary?.ToString(),
+                BlogContent = json,
+                IsPrivate = blog.IsPrivate,
+                PostDate = blog.PostDate
+
+            });
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(PostBlog), new { id = blog.Id }, blog);
