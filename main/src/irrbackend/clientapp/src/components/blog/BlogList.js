@@ -1,5 +1,7 @@
 import "./styles/bloglist.css";
 import React from 'react';
+import { NavLink } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { createRef } from 'react';
 
 class BlogList extends React.Component{
@@ -65,7 +67,7 @@ class BlogList extends React.Component{
                     <hr />
                     <p>{data.summary}</p>
                     <h6 className="date">Posted on {data.postDate.slice(0, 10)}</h6>
-                    <button>Read More</button>
+                    <button><NavLink tag={Link} to={`/blog/${data.id}`}>Read More</NavLink></button>
               </div></div>
               })}
             </div>

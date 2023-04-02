@@ -1,64 +1,76 @@
-import "./styles/bloglist.css";
+import "./styles/blogsingle.css";
 import { useEditor, EditorContent } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit'
+import { useParams } from 'react-router-dom';
 import React from 'react';
-import { createRef } from 'react';
+import { useEffect, useState } from 'react';
+
+function BlogWrapper(BlogSingle) {
+  return function WrappedComponent(props) {
+    const [blogData, setBlogData] = useState({
+      title : "loading",
+      summary : "",
+      postDate : "",
+      blogContent : "",
+  });
+  const { blogid } = useParams();
+  const editor = useEditor({ content: blogData.blogContent,  extensions: [StarterKit],});
+
+
+  
+  useEffect(() => {
+    if (!editor) {
+      return undefined
+    }
+
+    fetch(`${process.env.PUBLIC_URL}/api/blog/getblogbyid/${blogid}`, {
+      method: "GET",
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }).then(response => response.json())
+      .then(data => {
+        setBlogData(data);
+        editor.commands.setContent(data.blogContent.toString());
+
+      });
+
+    editor.setEditable(false)
+  }, [editor])
+
+  if (!editor) {
+    return null
+  }
+    return <BlogSingle {...props} editor={editor} blogData={blogData} />;
+  }
+}
 
 class BlogSingle extends React.Component{
   constructor(props){
     super(props);
-    this.editorcontent = Object.assign({}, {"type":"doc"}, props.blogcontent);
-    this.editor = useEditor(editorcontent);
-    this.element = createRef();
-    this.onScroll = this.onScroll.bind(this);
-    this.setScroll = this.setScroll.bind(this);
-    this.state={
-      scroll: false
-    };
   }    
-  setScroll(state){
-    this.setState({
-        scroll: state,
-        blogData: {
-          "title" : "loading",
-          "summary" : "",
-          "postDate" : "",
-          "blogcontent" : "",
-        }
-    });
-  }
-  onScroll(){
-    if(this.element.current){
-      var compPos = this.element.current.getBoundingClientRect().top - 100;    
-      var scrollPosition = window.scrollY + window.innerHeight;
-      if (scrollPosition > compPos){
-          this.setScroll(true);
-          window.removeEventListener('scroll', this.onScroll);
-      }
-    }
-  }
 
  componentDidMount(){
-      window.addEventListener('scroll', this.onScroll);
-      
+      window.scrollTo(0, 0);
   }
 
-  componentWillUnmount(){
-      window.removeEventListener('scroll', this.onScroll);
-  }
     render() {
         return (
-            <div ref={this.element} className={this.state.scroll ? "transition w-50" : "w-50 opacity-0"} id="greybox">
+            <div>
+              <div id="pagefill-small"></div>
               <div className="blog-single">
-                <h2>{this.testBLog.title}</h2>
-                <div>
-                <h5>Isaac Perks</h5>
-                <h6>{this.testBLog.postdate}</h6>
+                <div className="title-info">
+                  <h1>{this.props.blogData.title}</h1>
+                  <div className="sub-info">
+                    <h4 className="user">Isaac Perks</h4>
+                    <h6>Posted On {this.props.blogData.postDate.slice(0, 10)}</h6>
+                    <p>{this.props.blogData.summary}</p>
+                  </div>
                 </div>
-                <p>{this.testBLog.summary}</p>
+                <EditorContent editor={this.props.editor} />
               </div>
             </div>
         )
     }
 }
 
-export default BlogSingle;
+export default BlogWrapper(BlogSingle);

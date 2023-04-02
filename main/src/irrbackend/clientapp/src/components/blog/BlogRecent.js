@@ -1,5 +1,7 @@
 import "./styles/blogrecent.css";
 import React from 'react';
+import { NavLink } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { createRef } from 'react';
 
 class BlogRecent extends React.Component{
@@ -20,7 +22,8 @@ class BlogRecent extends React.Component{
       recentData: {
         title: "loading",
         summary: "",
-        postDate: "YYYY-MM-DD"
+        postDate: "YYYY-MM-DD",
+        id: 1
       }
     };
   }    
@@ -67,7 +70,7 @@ class BlogRecent extends React.Component{
                 <hr />
                 <p>{this.state.recentData.summary}</p>
                 <h6 className="date">Posted on {this.state.recentData.postDate.slice(0, 10)}</h6>
-                <button>Read More</button>
+                <button><NavLink tag={Link} to={`/blog/${this.state.recentData.id}`}>Read More</NavLink></button>
               </div>
             </div>
         )

@@ -187,8 +187,6 @@ const BlogEditor = (props) => {
       var error = "";
       var date = new Date().toLocaleDateString();
       var jsonData = editor.getJSON();
-      jsonData = JSON.stringify(jsonData);
-
       if(submitTitle.length < 4 || submitTitle.length > 18){
           error += "Title must be 4 to 18 characters long \r\n";
       } if(submitDescription.length > 128){
@@ -207,7 +205,7 @@ const BlogEditor = (props) => {
           body:JSON.stringify({
             "title": submitTitle,
             "summary": submitDescription,
-            "blogcontent": jsonData,
+            "blogcontent": editor.getHTML(),
             "postdate": date,
             "isprivate": false 
           })

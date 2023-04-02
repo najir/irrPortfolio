@@ -45,7 +45,7 @@
 .blog-editor-menu > button:active{
       background-color:rgb(200, 200,200);
 }
-.ProseMirror{
+.blog-editor .ProseMirror{
       background-color: rgba(250, 250,250, 1);
       border: 3px solid black;
       padding: 0 20px 400px 20px;

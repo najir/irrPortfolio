@@ -1,0 +1,35 @@
+.blog-single > .title-info{
+    text-align: center;
+}
+.title-info > .sub-info{
+    text-align: left;
+}
+.sub-info > h6 {
+    color: rgb(var(--theme1-accent));
+}
+
+.title-info h1{
+    font-size: 64px;
+    font-weight: 900;
+}
+
+.blog-single .ProseMirror{
+      padding: 0 20px 400px 20px;
+      border-top: 2px solid rgb(var(--theme1-border));
+      border-radius: 1%;
+}
+.blog-single{
+    background-color: rgba(0, 0, 0, .4);
+    border: 3px solid black;
+    text-align: left;
+    margin: 10px;     
+    border-radius: 25px;
+    padding: 40px 40px 10px 40px;
+}
+.blog-single .user {
+    float: right;
+    background-color: rgb(var(--theme1-accent2));
+    width: max-content;
+    padding: 5px 12px 5px 12px;
+    border-radius: 24px;
+}

@@ -76,19 +76,12 @@ namespace irrbackend.Controllers
         [Authorize]
         public async Task<IActionResult> PostBlog(Blog blog)
         {
-            string json = string.Empty;
-            using (var stream = new MemoryStream())
-            {
-                await JsonSerializer.SerializeAsync(stream, blog.BlogContent, blog.BlogContent.GetType());
-                stream.Position = 0;
-                using var reader = new StreamReader(stream);
-                json = await reader.ReadToEndAsync();
-            }
+           
             await _context.Blogs.AddAsync(new Blog()
             {
                 Title = blog.Title.ToString(),
                 Summary = blog.Summary?.ToString(),
-                BlogContent = json,
+                BlogContent = blog.BlogContent,
                 IsPrivate = blog.IsPrivate,
                 PostDate = blog.PostDate
 

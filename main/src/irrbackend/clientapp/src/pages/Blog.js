@@ -21,7 +21,7 @@ class BlogPage extends React.Component{
                   <InfoWidget text="My Blog"/>
                   <div id="pagefill"></div>
                 </div></div>
-                <button onClick={this.routeChange}><NavLink tag={Link} to="/createblog">New Post</NavLink></button>
+                <button><NavLink tag={Link} to="/createblog">New Post</NavLink></button>
                 <BlogListWidget />
             </div>
         )
