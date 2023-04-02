@@ -6,6 +6,7 @@ import PortfolioPage from '../pages/Portfolio';
 import IrrResume from '../components/resume/IrrResume';
 import NewBlog from "../pages/NewBlog";
 import BlogSingle from '../components/blog/BlogSingle';
+import BlogModify from '../components/blog/BlogModify';
 
 const ClientRoutes = [
     {
@@ -36,6 +37,10 @@ const ClientRoutes = [
     {
         path: '/blog/:blogid',
         page: <BlogSingle />
+    },
+    {
+        path: '/blog/modify/:blogid',
+        page: <BlogModify />
     },
     ...ApiAuthorzationRoutes
 ]

@@ -105,5 +105,25 @@ namespace irrbackend.Controllers
 
             return NoContent();
         }
+        [HttpPut]
+        [Authorize]
+        public async Task<IActionResult> ModifyBlog(Blog blog)
+        {
+            var oldBlog = await _context.Blogs.FindAsync(blog.Id);
+
+            if(oldBlog == null)
+            {
+                return NotFound();
+            }
+            oldBlog.Title = blog.Title.ToString();
+            oldBlog.Summary = blog.Summary?.ToString();
+            oldBlog.BlogContent = blog.BlogContent;
+            oldBlog.IsPrivate = blog.IsPrivate;
+            oldBlog.PostDate = blog.PostDate;
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }

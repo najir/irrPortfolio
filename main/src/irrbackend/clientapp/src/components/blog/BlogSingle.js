@@ -2,6 +2,8 @@ import "./styles/blogsingle.css";
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit'
 import { useParams } from 'react-router-dom';
+import { NavLink } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import DropDown from "../DropDown";
@@ -84,7 +86,7 @@ class BlogSingle extends React.Component{
                 </div>
                 <EditorContent editor={this.props.editor} />
                 <DropDown>
-                  <button>Modify</button>
+                  <button><NavLink tag={Link} to={`/blog/modify/${this.props.blogData.id}`}>Modify</NavLink></button>
                   <button onClick={this.deleteBlog}>Delete</button>
                 </DropDown>
               </div>
