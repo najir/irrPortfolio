@@ -20,6 +20,10 @@ class BlogPage extends React.Component{
                 <div id="titleimage"><div className="transition-in">
                   <InfoWidget text="My Blog"/>
                   <div id="pagefill"></div>
+                  <div id="greybox" className="w-75">
+                    <p>Welcome to my Personal Blog!</p>
+                    <p>Here you can see my recent and past blog posts! You can also feel free to hit the "New Post" button and check out the text editor used for making posts as well!</p>
+                  </div>
                 </div></div>
                 <button><NavLink tag={Link} to="/createblog">New Post</NavLink></button>
                 <BlogListWidget />

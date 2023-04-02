@@ -4,10 +4,14 @@ import StarterKit from '@tiptap/starter-kit'
 import { useParams } from 'react-router-dom';
 import React from 'react';
 import { useEffect, useState } from 'react';
+import DropDown from "../DropDown";
+import authService from '../api-authorization/AuthorizeService';
+
 
 function BlogWrapper(BlogSingle) {
   return function WrappedComponent(props) {
     const [blogData, setBlogData] = useState({
+      id: "",
       title : "loading",
       summary : "",
       postDate : "",
@@ -47,7 +51,19 @@ function BlogWrapper(BlogSingle) {
 class BlogSingle extends React.Component{
   constructor(props){
     super(props);
+
+    this.deleteBlog = this.deleteBlog.bind(this)
   }    
+
+  async deleteBlog(){
+    const token = await authService.getAccessToken();
+    fetch(`${process.env.PUBLIC_URL}/api/blog/deleteblog/${this.props.blogData.id}`, {
+      method: "POST",
+      headers: !token ? {} : { 'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }}).then(response => console.log(response))
+  }
 
  componentDidMount(){
       window.scrollTo(0, 0);
@@ -67,6 +83,10 @@ class BlogSingle extends React.Component{
                   </div>
                 </div>
                 <EditorContent editor={this.props.editor} />
+                <DropDown>
+                  <button>Modify</button>
+                  <button onClick={this.deleteBlog}>Delete</button>
+                </DropDown>
               </div>
             </div>
         )

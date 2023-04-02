@@ -29,9 +29,9 @@ namespace irrbackend.Controllers
         [ActionName("latestblog")]
         public async Task<IActionResult> LatestBlog()
         {
-            var latestBlog = await _context.Blogs.Where(b =>b.IsPrivate==false).OrderBy(s => s.Id).LastOrDefaultAsync();
+            var latestBlog = await _context.Blogs.Where(b => b.IsPrivate == false).OrderBy(s => s.Id).LastOrDefaultAsync();
 
-            if(latestBlog == null)
+            if (latestBlog == null)
             {
                 return NotFound();
             }
@@ -40,7 +40,7 @@ namespace irrbackend.Controllers
         [HttpGet]
         public async Task<IActionResult> ListBlog()
         {
-            var listBlog = await _context.Blogs.Where(b=>b.IsPrivate==false).ToListAsync() ;
+            var listBlog = await _context.Blogs.Where(b => b.IsPrivate == false).OrderBy(s => s.Id).ToListAsync();
 
             if (listBlog == null)
             {
@@ -53,7 +53,7 @@ namespace irrbackend.Controllers
         {
             var getBlog = await _context.Blogs.SingleAsync(b => b.PostDate == date);
 
-            if(getBlog == null)
+            if (getBlog == null)
             {
                 return NotFound();
             }
@@ -76,7 +76,7 @@ namespace irrbackend.Controllers
         [Authorize]
         public async Task<IActionResult> PostBlog(Blog blog)
         {
-           
+
             await _context.Blogs.AddAsync(new Blog()
             {
                 Title = blog.Title.ToString(),
@@ -89,6 +89,21 @@ namespace irrbackend.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(PostBlog), new { id = blog.Id }, blog);
+        }
+        [HttpPost("{id}")]
+        [Authorize]
+        public async Task<IActionResult> DeleteBlog(int id)
+        {
+            var blogObj = await _context.Blogs.FindAsync(id);
+            if (blogObj == null)
+            {
+                return NotFound();
+            }
+
+            _context.Blogs.Remove(blogObj);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }
