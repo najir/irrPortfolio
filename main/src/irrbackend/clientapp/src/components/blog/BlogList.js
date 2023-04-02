@@ -21,7 +21,8 @@ class BlogList extends React.Component{
     this.onScroll = this.onScroll.bind(this);
     this.setScroll = this.setScroll.bind(this);
     this.state={
-      scroll: false
+      scroll: false,
+      listData: []
     };
   }    
   setScroll(state){
@@ -41,8 +42,14 @@ class BlogList extends React.Component{
   
   }
 
-  componentDidMount(){
+  async componentDidMount(){
       window.addEventListener('scroll', this.onScroll);
+      await fetch(`${process.env.PUBLIC_URL}/api/blog/listblog`, {
+        method: "GET",
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }).then(response => response.json())
+        .then(data => this.setState({listData : data}));
   }
 
   componentWillUnmount(){
@@ -51,13 +58,13 @@ class BlogList extends React.Component{
     render() {
         return (
             <div ref={this.element} className={this.state.scroll ? "transition blog-list-container" : " opacity-0 blog-list-container"}>
-              {this.testBLogs.map((data) =>{
+              {this.state.listData.map((data) =>{
                 return <div className="blog-list-card"><div className="blog-list">
                     <h2>{data.title}</h2>
-                    <h6 className="user">{data.author}</h6>
+                    <h6 className="user">Isaac Perks</h6>
                     <hr />
                     <p>{data.summary}</p>
-                    <h6 className="date">Posted on {data.postdate}</h6>
+                    <h6 className="date">Posted on {data.postDate.slice(0, 10)}</h6>
                     <button>Read More</button>
               </div></div>
               })}

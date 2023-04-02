@@ -39,6 +39,10 @@ class HomePage extends React.Component {
                       <p>Full Database integration and access via SQL | Tested on Azure</p>
                     </div>
                     <div className = "d-flex align-items-start">
+                      <i class="bi bi-blockquote-left font-small me-1 mb-1"></i>
+                      <p>Complete Blog integration for creating and viewing blogs</p>
+                    </div>
+                    <div className = "d-flex align-items-start">
                       <i class="bi bi-filetype-jsx font-small me-1 mb-1"></i>
                       <p>Dynamic webpages via Bootstrap and REACT's virtual DOM updates</p>
                     </div>

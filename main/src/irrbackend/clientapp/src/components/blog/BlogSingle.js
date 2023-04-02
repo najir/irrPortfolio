@@ -1,17 +1,13 @@
 import "./styles/bloglist.css";
+import { useEditor, EditorContent } from '@tiptap/react';
 import React from 'react';
 import { createRef } from 'react';
 
 class BlogSingle extends React.Component{
   constructor(props){
     super(props);
-    this.testBLog = {
-      title: "Test Blog",
-      summary: "This is a test of an input blog that is pulled from my backend server",
-      author: "Isaac Perks",
-      postdate: "5/12/2022",
-      isprivate: "false"
-    };
+    this.editorcontent = Object.assign({}, {"type":"doc"}, props.blogcontent);
+    this.editor = useEditor(editorcontent);
     this.element = createRef();
     this.onScroll = this.onScroll.bind(this);
     this.setScroll = this.setScroll.bind(this);
@@ -21,7 +17,13 @@ class BlogSingle extends React.Component{
   }    
   setScroll(state){
     this.setState({
-        scroll: state
+        scroll: state,
+        blogData: {
+          "title" : "loading",
+          "summary" : "",
+          "postDate" : "",
+          "blogcontent" : "",
+        }
     });
   }
   onScroll(){
@@ -33,11 +35,11 @@ class BlogSingle extends React.Component{
           window.removeEventListener('scroll', this.onScroll);
       }
     }
-  
   }
 
-  componentDidMount(){
+ componentDidMount(){
       window.addEventListener('scroll', this.onScroll);
+      
   }
 
   componentWillUnmount(){
@@ -49,11 +51,10 @@ class BlogSingle extends React.Component{
               <div className="blog-single">
                 <h2>{this.testBLog.title}</h2>
                 <div>
-                <h5>{this.testBLog.author}</h5>
+                <h5>Isaac Perks</h5>
                 <h6>{this.testBLog.postdate}</h6>
                 </div>
                 <p>{this.testBLog.summary}</p>
-                <button>Read More</button>
               </div>
             </div>
         )

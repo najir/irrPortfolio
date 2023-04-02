@@ -5,6 +5,7 @@ import BlogPage from '../pages/Blog';
 import PortfolioPage from '../pages/Portfolio';
 import IrrResume from '../components/resume/IrrResume';
 import NewBlog from "../pages/NewBlog";
+import BlogSingle from '../components/blog/BlogSingle';
 
 const ClientRoutes = [
     {
@@ -31,6 +32,10 @@ const ClientRoutes = [
         requireAuth : true,
         path: '/createblog',
         page: <NewBlog />
+    },
+    {
+        path: '/blog/:blogid',
+        page: <BlogSingle />
     },
     ...ApiAuthorzationRoutes
 ]

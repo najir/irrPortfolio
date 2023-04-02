@@ -16,7 +16,12 @@ class BlogRecent extends React.Component{
     this.onScroll = this.onScroll.bind(this);
     this.setScroll = this.setScroll.bind(this);
     this.state={
-      scroll: false
+      scroll: false,
+      recentData: {
+        title: "loading",
+        summary: "",
+        postDate: "YYYY-MM-DD"
+      }
     };
   }    
   setScroll(state){
@@ -36,8 +41,14 @@ class BlogRecent extends React.Component{
   
   }
 
-  componentDidMount(){
+  async componentDidMount(){
       window.addEventListener('scroll', this.onScroll);
+      await fetch(`${process.env.PUBLIC_URL}/api/blog/latestblog`, {
+        method: "GET",
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }).then(response => response.json())
+        .then(data => this.setState({recentData : data}));
   }
 
   componentWillUnmount(){
@@ -46,13 +57,16 @@ class BlogRecent extends React.Component{
     render() {
         return (
             <div ref={this.element} className={this.state.scroll ? "transition w-50 blog-recent-card" : "w-50 opacity-0 blog-recent-card"}>
-              <i className="bi bi-text-paragraph font-large"></i>
+              <div className="d-flex align-content-center">
+                <i className="bi bi-text-paragraph font-large"></i>
+                <h3 className="mt-2">Latest Blog</h3>
+              </div>
               <div className="blog-recent">
-                <h2>{this.testBLog.title}</h2>
-                <h6 className="user">{this.testBLog.author}</h6>
+                <h2>{this.state.recentData.title}</h2>
+                <h6 className="user">Isaac Perks</h6>
                 <hr />
-                <p>{this.testBLog.summary}</p>
-                <h6 className="date">Posted on {this.testBLog.postdate}</h6>
+                <p>{this.state.recentData.summary}</p>
+                <h6 className="date">Posted on {this.state.recentData.postDate.slice(0, 10)}</h6>
                 <button>Read More</button>
               </div>
             </div>

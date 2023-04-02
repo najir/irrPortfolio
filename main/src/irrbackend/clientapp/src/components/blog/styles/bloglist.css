@@ -21,7 +21,7 @@
 .blog-list > button:active{
     transform: scale(100%);
 }
-.blog-list  > h2{
+.blog-list > h2{
     margin: 0;
     padding: 0 0 5px 10px;
     text-align: right;

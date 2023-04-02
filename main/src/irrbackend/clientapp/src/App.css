@@ -97,7 +97,7 @@
   width: 0;
   animation: retyping;
   animation-duration: 1.6s;
-  animation-timing-function: steps(30, end);
+  animation-timing-function: steps(25, end);
   animation-fill-mode: forwards;
 }
 .retyped1{
@@ -107,7 +107,7 @@
   animation: retyping;
   animation-delay: 1.5s;
   animation-duration: 1.5s;
-  animation-timing-function: steps(30, end);
+  animation-timing-function: steps(25, end);
   animation-fill-mode: forwards;
 }
 .retyped2{
@@ -117,7 +117,7 @@
   animation: retyping;
   animation-delay: 3s;
   animation-duration: 1.5s;
-  animation-timing-function: steps(30, end);
+  animation-timing-function: steps(25, end);
   animation-fill-mode: forwards;
 }
 
@@ -155,10 +155,11 @@
 }
 
 @keyframes retyping{
-  from{
+  0%{
     width: 0;
   }
-  to{
+  100%{
     width: 100%;
+    max-width: max-content;
   }
 }
