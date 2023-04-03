@@ -18,6 +18,9 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
 builder.Services.AddDbContext<UserDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
 
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("Secrets.json");
+
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<UserDbContext>();
 
