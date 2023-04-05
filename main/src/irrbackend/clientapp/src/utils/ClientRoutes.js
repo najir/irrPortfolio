@@ -39,6 +39,7 @@ const ClientRoutes = [
         page: <BlogSingle />
     },
     {
+        requireAuth : true,
         path: '/blog/modify/:blogid',
         page: <BlogModify />
     },

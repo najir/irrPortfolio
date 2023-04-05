@@ -7,7 +7,6 @@ using System.Text.Json;
 
 namespace irrbackend.Controllers
 {
-    [AllowAnonymous]
     [ApiController]
     [Route("api/[controller]/[action]")]
     public class BlogController : ControllerBase
@@ -25,6 +24,7 @@ namespace irrbackend.Controllers
         [Route("/error")]
         public IActionResult HandleError() =>
             Problem();
+        [AllowAnonymous]
         [HttpGet]
         [ActionName("latestblog")]
         public async Task<IActionResult> LatestBlog()
@@ -37,6 +37,7 @@ namespace irrbackend.Controllers
             }
             return Ok(latestBlog);
         }
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> ListBlog()
         {
@@ -48,6 +49,7 @@ namespace irrbackend.Controllers
             }
             return Ok(listBlog);
         }
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetBlogByDate(DateTime date)
         {
@@ -60,6 +62,7 @@ namespace irrbackend.Controllers
             return Ok(getBlog);
 
         }
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBlogById(int id)
         {
@@ -73,7 +76,7 @@ namespace irrbackend.Controllers
 
         }
         [HttpPost]
-        [Authorize]
+        [Authorize(Policy = "IsAdmin")]
         public async Task<IActionResult> PostBlog(Blog blog)
         {
 
@@ -91,7 +94,7 @@ namespace irrbackend.Controllers
             return CreatedAtAction(nameof(PostBlog), new { id = blog.Id }, blog);
         }
         [HttpPost("{id}")]
-        [Authorize]
+        [Authorize(Policy = "IsAdmin")]
         public async Task<IActionResult> DeleteBlog(int id)
         {
             var blogObj = await _context.Blogs.FindAsync(id);
@@ -106,7 +109,7 @@ namespace irrbackend.Controllers
             return NoContent();
         }
         [HttpPut]
-        [Authorize]
+        [Authorize(Policy = "IsAdmin")]
         public async Task<IActionResult> ModifyBlog(Blog blog)
         {
             var oldBlog = await _context.Blogs.FindAsync(blog.Id);

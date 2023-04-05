@@ -3,6 +3,7 @@ import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { LoginMenu } from './api-authorization/LoginMenu';
+import DropDown from './DropDown';
 
 
 class NavBar extends React.Component{
@@ -77,8 +78,10 @@ class NavBar extends React.Component{
                         <NavItem>
                             <NavLink className={this.state.activeLink === 'resume' ? 'active-link' : ""} onClick={()=>{this.setActiveLink('resume')}} tag={Link} to="/resume">Resume</NavLink>
                         </NavItem>
-                        <LoginMenu>
-                        </LoginMenu>
+                        <DropDown className="nav-dropdown">
+                            <LoginMenu>
+                            </LoginMenu>
+                        </DropDown>
                     </Nav>
                 </Collapse>
               </Navbar>

@@ -23,7 +23,7 @@ class HomePage extends React.Component {
                 <div id="textboxmain" className="mt-5 ms-3 welcome-box\">Welcome to my Portfolio!</div>
 
                 <div id="greybox" className="w-50">
-                  <p>Built with ASP.NET and React, this website contains a host of revelant features such as: </p>
+                  <p>Built with ASP.NET and React, Hosted on Azure, and secured with Cloudflare. This website contains a host of revelant features such as: </p>
                   <br />
                   <div className = "d-flex flex-column">
                     <div className = "d-flex align-items-start">
@@ -36,11 +36,11 @@ class HomePage extends React.Component {
                     </div>
                     <div className = "d-flex align-items-start">
                       <i class="bi bi-hdd-rack font-small me-1 mb-1"></i>
-                      <p>Full Database integration and access via SQL | Tested on Azure</p>
+                      <p>Complete database storage access via SQL | Running on AzureSQL</p>
                     </div>
                     <div className = "d-flex align-items-start">
                       <i class="bi bi-blockquote-left font-small me-1 mb-1"></i>
-                      <p>Complete Blog integration for creating and viewing blogs</p>
+                      <p>Fully integrated blog, editing/modifying/posting/viewing</p>
                     </div>
                     <div className = "d-flex align-items-start">
                       <i class="bi bi-filetype-jsx font-small me-1 mb-1"></i>
@@ -48,7 +48,7 @@ class HomePage extends React.Component {
                     </div>
                     <div className = "d-flex align-items-start">
                       <i class="bi bi-file-earmark-person font-small me-1 mb-1"></i>
-                      <p>Integrated resume via a resume JSON schema</p>
+                      <p>Integrated resume via a React-Wrapped JSON schema</p>
                     </div>
                   </div>
                   <br/>

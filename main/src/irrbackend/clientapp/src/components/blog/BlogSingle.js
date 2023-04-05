@@ -64,7 +64,10 @@ class BlogSingle extends React.Component{
       headers: !token ? {} : { 'Authorization': `Bearer ${token}`,
       'Accept': 'application/json',
       'Content-Type': 'application/json'
-    }}).then(response => console.log(response))
+    }}).then(response => {
+      if (response.status === 403){
+        alert("Removing posts requires an Administrator Account");
+    }})
   }
 
  componentDidMount(){

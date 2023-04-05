@@ -9,6 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
 using Duende.IdentityServer.EntityFramework.Entities;
 using Microsoft.Extensions.FileSystemGlobbing.Internal.Patterns;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using Azure.Identity;
+using Azure.Extensions.AspNetCore.Configuration.Secrets;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,10 +22,17 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
 builder.Services.AddDbContext<UserDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("IrrDb")));
 
-builder.Configuration
-    .SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("Secrets.json");
+
+
+if (!builder.Environment.IsDevelopment())
+{
+    var keyVaultEndpoint = new Uri("");
+    builder.Configuration.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
+}
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
+    .AddRoleManager<RoleManager<IdentityRole>>()
     .AddEntityFrameworkStores<UserDbContext>();
 
 builder.Services.AddIdentityServer()
@@ -39,17 +50,17 @@ builder.Services.AddHttpClient("github", c =>
 
 });
 builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("RequireAdministratorRole",
-        policy => policy.RequireRole("Administrator"));
-});
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddNewtonsoftJson();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("IsAdmin",
+        policy => policy.RequireRole("admin"));
+});
 
 var app = builder.Build();
 
@@ -80,6 +91,10 @@ app.MapControllerRoute(
     pattern: "api/{controller}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-app.MapFallbackToFile("index.html");
+using (var scope = app.Services.CreateScope())
+{
+    await UserSeeder.SeedRolesAndAdminAsync(scope.ServiceProvider, builder.Configuration);
+}
 
+app.MapFallbackToFile("index.html");
 app.Run();

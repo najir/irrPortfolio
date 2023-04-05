@@ -1,8 +1,5 @@
 {
   "dependencies": {
-    "secrets1": {
-      "type": "secrets"
-    },
     "apis1": {
       "type": "apis"
     },
@@ -10,6 +7,10 @@
       "type": "mssql",
       "connectionId": "ConnectionStrings:IrrDb",
       "dynamicId": null
+    },
+    "secrets1": {
+      "type": "secrets",
+      "connectionId": "VaultUri"
     }
   }
 }

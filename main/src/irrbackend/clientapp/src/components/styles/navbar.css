@@ -37,7 +37,6 @@
 .active-link{
     color: #223e61;
 }
-
 #scrolled{
     background-color: rgba(0, 0, 0);
     transition: .32s ease-in-out;

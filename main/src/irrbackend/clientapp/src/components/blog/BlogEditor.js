@@ -209,6 +209,11 @@ const BlogEditor = (props) => {
             "postdate": date,
             "isprivate": false 
           })
+        }).then(response => {
+          console.log(response.status);
+          if (response.status === 403){
+            alert("Posting requires and administrator account!")
+          }
         })
       }
   }

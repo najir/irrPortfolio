@@ -51,7 +51,17 @@ class BlogRecent extends React.Component{
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }).then(response => response.json())
-        .then(data => this.setState({recentData : data}));
+        .then(data => {
+          if(data === ""){
+            this.setState({recentData : data})
+          }else{
+            this.setState({recentData: {
+              title: "No Recent Blog",
+              summary: "A blog could not be retrieved",
+              postDate: "YYYY-MM-DD",
+              id: 0
+            }})
+          }});
   }
 
   componentWillUnmount(){

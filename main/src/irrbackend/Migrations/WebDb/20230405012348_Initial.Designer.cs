@@ -12,8 +12,8 @@ using irrbackend.DAL;
 namespace irrbackend.Migrations.WebDb
 {
     [DbContext(typeof(WebDbContext))]
-    [Migration("20230401030948_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230405012348_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

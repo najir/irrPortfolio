@@ -6,7 +6,7 @@ namespace irrbackend.DAL
 {
     public static class UserSeeder
     {
-        public static async Task SeedRolesAndAdminAsync(IServiceProvider service, IConfigurationSection configuration)
+        public static async Task SeedRolesAndAdminAsync(IServiceProvider service, ConfigurationManager configuration)
         {
             //Initializes User/Role Manager. Sets up new Roles based on MyConstants.cs and ensures they're created inside the DB
             var userManager = service.GetService<UserManager<ApplicationUser>>();
@@ -26,11 +26,10 @@ namespace irrbackend.DAL
 
                 throw new Exception($"Could not create role {role.Name}");
             }
-            
             // Creates a default user with Username/Email/Password set inside secrets and added to the config in program.cs
             var user = new ApplicationUser
             {
-                UserName = configuration["username"],
+                UserName = configuration["email"],
                 Email = configuration["email"],
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true
