@@ -41,7 +41,7 @@ namespace irrbackend.Controllers
         [HttpGet]
         public async Task<IActionResult> ListBlog()
         {
-            var listBlog = await _context.Blogs.Where(b => b.IsPrivate == false).OrderBy(s => s.Id).ToListAsync();
+            var listBlog = await _context.Blogs.Where(b => b.IsPrivate == false).OrderByDescending(s => s.Id).ToListAsync();
 
             if (listBlog == null)
             {

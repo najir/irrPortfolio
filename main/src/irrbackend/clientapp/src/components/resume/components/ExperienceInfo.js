@@ -11,7 +11,7 @@ class ExperienceInfo extends React.Component{
     render() {
         return (
             <div>
-                <h2 id="title">Projects<span className="icon-float"><i class="bi bi-kanban-fill icon-float"></i></span></h2>
+                <h2 id="title">Experience<span className="icon-float"><i class="bi bi-kanban-fill icon-float"></i></span></h2>
                 {resume.projects.map((col, row) => 
                 <ProjectWrapper key={row} {...col}/>)}
                 <h6>See more of my projects and available source code at my Github: https://github.com/najir </h6>

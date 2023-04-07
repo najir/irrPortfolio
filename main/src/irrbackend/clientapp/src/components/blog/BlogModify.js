@@ -145,6 +145,9 @@ const BlogModify = (props) => {
 
     const editor = useEditor({
         extensions: [
+          TextAlign.configure({
+            types: ['heading', 'paragraph']
+          }),
         TextStyle.configure({ types: [ListItem.name] }),
         StarterKit.configure({
             bulletList: {
@@ -189,10 +192,10 @@ const BlogModify = (props) => {
       var error = "";
       var date = new Date().toLocaleDateString();
       var jsonData = editor.getJSON();
-      if(submitTitle.length < 4 || submitTitle.length > 18){
-          error += "Title must be 4 to 18 characters long \r\n";
-      } if(submitDescription.length > 128){
-          error += "Description must be less than 64 characters long \r\n";
+      if(submitTitle.length < 4 || submitTitle.length > 32){
+          error += "Title must be 4 to 32 characters long \r\n";
+      } if(submitDescription.length > 256){
+          error += "Description must be less than 256 characters long \r\n";
       }
       if(error){
           alert(error);
@@ -212,7 +215,10 @@ const BlogModify = (props) => {
             "postdate": date,
             "isprivate": false 
           })
-        })
+        }).then(response => {
+          if (response.status === 403){
+            alert("Modifying posts requires an Administrator Account")
+        }})
       }
   }
 

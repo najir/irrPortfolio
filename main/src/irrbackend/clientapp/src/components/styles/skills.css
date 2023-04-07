@@ -1,0 +1,27 @@
+.skills-wrapper{
+    color: rgb(var(--theme1-text));
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    max-width: inherit;
+    padding: 10px;
+}
+.skills-wrapper > .skill-title{
+    border-bottom: 1px solid rgb(var(--theme1-border));
+    margin-bottom: 35px;
+    padding-bottom: 35px;
+
+}
+.skill-item-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.skill-item-wrapper > .skill-item{
+    background-color: rgb(var(--theme1-accent2));
+    color: rgb(var(--theme1-text));
+    line-height: 0; 
+    padding: 12px 5px 0 5px;
+    border-radius: 10px;
+    border-bottom: 2px solid rgb(var(--theme1-border));
+}

@@ -21,7 +21,7 @@
     margin: auto;
     margin-bottom: 150px;
     padding: 0 0 100px 0;
-    filter: drop-shadow(6px 6px 3px black);
+    filter: drop-shadow(8px 8px 2px black);
 }
 .portfolio-object h2, .portfolioproject-info{
     margin: 0;

@@ -52,7 +52,7 @@ class BlogRecent extends React.Component{
         'Content-Type': 'application/json'
       }).then(response => response.json())
         .then(data => {
-          if(data === ""){
+          if(data !== ""){
             this.setState({recentData : data})
           }else{
             this.setState({recentData: {

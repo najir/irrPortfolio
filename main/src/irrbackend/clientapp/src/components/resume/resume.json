@@ -5,11 +5,10 @@
     "email": "irrperks@gmail.com",
     "phone": "(541)321-9148",
     "url": "https://github.com/najir",
-    "summary": "This is a test summary of a bunch of things, I'm unsure of the exact formating or specifications to occur from this particular field.\nThis is a new line and paragraph. Yet there is no way to actually break the line within my editor. So I'm stuck writing/nan extremely long line of text that is disgusting to understand and foucs on, but shouldn't be a huge issue for resume factoring I assume.",
     "location": {
       "address": "8650 SW Canyon Lane",
       "postalCode": "OR, 97225",
-      "city": "Beaverton",
+      "city": "Portland",
       "countryCode": "US",
       "region": "Oregon"
     },
@@ -27,9 +26,9 @@
     "endDate": "October, 2021",
     "courses": [
       "CIS 210-212",
-      "CIS 311 DataStruc",
-      "CIS 312 Algo",
-      "CIS 313 Sys Ops",
+      "CIS 313 DataStruc",
+      "CIS 314 Algo",
+      "CIS 315 Sys Ops",
       "CIS 321 Web Dev",
       "Data Structures I II",
       "Calc I II III",
@@ -156,7 +155,7 @@
   },
   {
     "name": "IrrPortfolio",
-    "description": "Personal Portfolio Website. ASP.NET Core MVC backend with api end-points and SQL database access. REACT frontend with bootstrap, reactstrap, react-router for dynamic pages. User Auth/Identification via Duende Identity 4. Github GraphQL API endpoints on back-end. Integrated irrResume page. ",
+    "description": "Personal Portfolio Website. ASP.NET Core MVC backend and REACT frontend with bootstrap, reactstrap, react-router for dynamic pages. User Role Auth/Identification via Claims JWT token on Identity. Github GraphQL API endpoints on back-end. Integrated irrResume page. Full blog implementation and Web Api Access. ",
     "keywords": [
       "ASP.NET 7.0",
       "MVC",
@@ -196,12 +195,18 @@
     "name": "IrrResume",
     "description": "This resume is a JSON Schema wrapped by a REACT.js webpage that is then converted to PDF. Integrated into my portfolio website.",
     "keywords": [
-      "React.js",
-      "Json Schema",
-      "VSCode",
-      "Javascript"
     ],
     "date": "March 2023",
+    "url": "https://project.com/",
+    "entity": "Entity",
+    "type": "application"
+  },
+  {
+    "name": "wikiNotes",
+    "description": "My personal Wiki for notes and research running on a docker-container with SQLlite3, hosted on a rasberry pi 4.",
+    "keywords": [
+    ],
+    "date": "April 2023",
     "url": "https://project.com/",
     "entity": "Entity",
     "type": "application"
@@ -211,7 +216,7 @@
     "position": "Leasing Agent",
     "startDate": "2019-01-19",
     "endDate": "2023-03-14",
-    "summary": "Followed up with prospects via phone, email, and personal tours to close leases. Managed, scheduled, and hosted events for current residents. A resource for current residents to help with maintenance/emergency calls, questions/concerns, and mediate issues. Participated in and hosted advertising, tabeling, and other outreach for prospective clients.",
+    "summary": "Followed up with prospects via phone, email, and personal tours to close leases. Managed, scheduled, and hosted events for current residents. A resource for current residents to help with maintenance/emergency calls, questions/concerns, and mediate issues. Participated in and hosted advertising, tableing, and other outreach for prospective clients.",
     "highlights": [
       "Hundreds of Full Year Leases Completed",
       "Large Scale Marketing & Event Hosting",

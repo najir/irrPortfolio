@@ -1,0 +1,6 @@
+.book-image{
+    float: left;
+    width: 150px;
+    margin: 8px 8px 8px 0;
+    filter: drop-shadow(1px 1px 2px rgb(var(--theme1-border)));
+}

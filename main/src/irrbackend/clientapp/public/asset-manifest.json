@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8e9f789b.css",
+    "main.js": "/static/js/main.92a65a3f.js",
+    "static/js/787.b6fd2ddb.chunk.js": "/static/js/787.b6fd2ddb.chunk.js",
+    "static/media/launcherz.png": "/static/media/launcherz.ab838d41f5434e440063.png",
+    "static/media/portfolio.png": "/static/media/portfolio.6f61480038f5d1a04131.png",
+    "static/media/resume.png": "/static/media/resume.114fa2b6d6c4b5d833f1.png",
+    "static/media/readify.png": "/static/media/readify.1f1f1b8077a7a1da5533.png",
+    "static/media/kvs.png": "/static/media/kvs.7dfc0458982cac8cbea6.png",
+    "static/media/title-image.png": "/static/media/title-image.2b7d08ece68083330423.png",
+    "static/media/bootstrap-icons.woff?": "/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
+    "static/media/rustPSM.png": "/static/media/rustPSM.5f609906b944ffe2d094.png",
+    "static/media/bootstrap-icons.woff2?": "/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
+    "static/media/DidotBoldItalic.ttf": "/static/media/DidotBoldItalic.8b4d57e1afa2f1119b42.ttf",
+    "static/media/DidotItalic.otf": "/static/media/DidotItalic.41bc511d6a1cac26e0a8.otf",
+    "static/media/DidotBold.otf": "/static/media/DidotBold.63f0d232f90ce5816328.otf",
+    "index.html": "/index.html",
+    "main.8e9f789b.css.map": "/static/css/main.8e9f789b.css.map",
+    "main.92a65a3f.js.map": "/static/js/main.92a65a3f.js.map",
+    "787.b6fd2ddb.chunk.js.map": "/static/js/787.b6fd2ddb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e9f789b.css",
+    "static/js/main.92a65a3f.js"
+  ]
+}

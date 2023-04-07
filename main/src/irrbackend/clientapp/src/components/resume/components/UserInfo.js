@@ -36,6 +36,10 @@ export class ProfileWrapper extends React.Component{
                       <h6 id="profile">{resume.basics.url}</h6>
                     </div>
                     <div className="flex-icon">
+                      <i className="bi bi-window-fullscreen icon-size"></i>
+                      <h6 id="profile">Irrperks.dev</h6>
+                    </div>
+                    <div className="flex-icon">
                       <i class="bi bi-house-door-fill icon-size"></i>
                       <h6 id="profile">{resume.basics.location.address}, {resume.basics.location.city} OR</h6>
                     </div>

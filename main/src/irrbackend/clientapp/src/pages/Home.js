@@ -4,6 +4,7 @@ import BookFetch from "../components/BookFetch";
 import BlogRecentWidget from "../components/blog/BlogRecent";
 import ProjectFetch from "../components/ProjectFetch";
 import InfoWidget from "../components/InfoWidget";
+import SkillsComp from '../components/SkillsComp';
 import React from 'react';
 
 class HomePage extends React.Component {
@@ -71,6 +72,8 @@ class HomePage extends React.Component {
                 </div>
                 <div id="pagefill"></div>
               </div>
+              <SkillsComp />
+              <div id="pagefill"></div>
             </div>
         );
     }    

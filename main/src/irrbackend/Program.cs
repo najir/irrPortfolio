@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Azure.Identity;
 using Azure.Extensions.AspNetCore.Configuration.Secrets;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,13 +35,31 @@ if (!builder.Environment.IsDevelopment())
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddRoleManager<RoleManager<IdentityRole>>()
+    .AddDefaultTokenProviders()
     .AddEntityFrameworkStores<UserDbContext>();
 
-builder.Services.AddIdentityServer()
-    .AddApiAuthorization<ApplicationUser, UserDbContext>();
+builder.Services.AddIdentityServer(options =>
+{
+    options.IssuerUri = builder.Configuration["IssuerUri"];
+})
+    .AddApiAuthorization<ApplicationUser, UserDbContext>()
+    .AddProfileService<ProfileService>();
 
 builder.Services.AddAuthentication()
-    .AddIdentityServerJwt();
+    .AddIdentityServerJwt()
+    .AddJwtBearer(options =>
+    {
+        var issuers = new List<string>()
+        {
+            "https://irrperks.dev",
+            "https://irrbackend.azurewebsites.net"
+        };
+        TokenValidationParameters tokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuers = issuers
+        }; 
+    });
 
 builder.Services.AddHttpClient("github", c =>
 {
@@ -59,7 +79,7 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("IsAdmin",
-        policy => policy.RequireRole("admin"));
+        policy => policy.RequireClaim(ClaimTypes.Role, "admin"));//policy.RequireRole("admin"));
 });
 
 var app = builder.Build();
