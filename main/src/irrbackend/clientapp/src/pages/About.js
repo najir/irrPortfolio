@@ -59,7 +59,10 @@ class AboutPage extends React.Component{
                 <div className="read-more" onClick={this.setRead}>{this.state.readmore ? '...Read More' : '...Show Less'}</div>
                 </p>
             </div>
+            <div id="pagefill-small"></div>
+
             <Timeline />
+            <div id="pagefill-small"></div>
           </div>
         )
     }

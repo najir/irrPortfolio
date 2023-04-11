@@ -78,6 +78,7 @@ class BlogSingle extends React.Component{
         return (
             <div>
               <div id="pagefill-small"></div>
+                <button className="blog-back"><NavLink tag={Link} to="/blog">Go Back</NavLink></button>
               <div className="blog-single">
                 <div className="title-info">
                   <h1>{this.props.blogData.title}</h1>

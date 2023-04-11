@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
-import NavBar from "./components/NavBar"
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
 import { Route, Routes } from 'react-router-dom';
 import ClientRoutes from "./utils/ClientRoutes"
 import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
@@ -22,6 +23,7 @@ function App() {
           })}
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -59,7 +59,7 @@ class ProjectFetch extends React.Component{
                   <h5 id="textboxmain" className="ms-2">Featured Project</h5>
                 </div>
 
-                <div className="d-flex">
+                <div className="d-flex gap-3">
                   <div className="project-image-card" style={{backgroundImage: this.projectData.image}} />
                   <div>
                     <h2>{this.projectData.title}</h2>

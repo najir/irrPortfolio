@@ -26,7 +26,10 @@ class BlogPage extends React.Component{
                   </div>
                 </div></div>
                 <button><NavLink tag={Link} to="/createblog">New Post</NavLink></button>
+                <div id="pagefill-small"></div>
                 <BlogListWidget />
+                <div id="pagefill-medium"></div>
+
             </div>
         )
     }

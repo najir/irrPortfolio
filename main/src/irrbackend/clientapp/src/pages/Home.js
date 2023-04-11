@@ -63,17 +63,18 @@ class HomePage extends React.Component {
               </div></div>
               <GitFetch />
               <ProjectFetch />
-              <div className="bookandblogwrapper">
-                <div id="pagefill"></div>
+              <div className="bookandblogwrapper transition">
+                <div id="pagefill-medium"></div>
                 <div className="bookandblog">
                     <BookFetch />
                     <BlogRecentWidget />
-                    <div id="pagefill"></div>
+                    <div id="pagefill-medium"></div>
                 </div>
                 <div id="pagefill"></div>
               </div>
+              <div id="pagefill-medium"></div>
               <SkillsComp />
-              <div id="pagefill"></div>
+              <div id="pagefill-small"></div>
             </div>
         );
     }    
