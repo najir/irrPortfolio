@@ -84,7 +84,7 @@ class PortfolioFetch extends React.Component{
   }
   onScroll(){
     if(this.element.current){
-      var compPos = this.element.current.getBoundingClientRect().top - 100;    
+      var compPos = this.element.current.getBoundingClientRect().top - 50;    
       var scrollPosition = window.scrollY + window.innerHeight;
       if (scrollPosition > compPos){
           this.setScroll(true);
