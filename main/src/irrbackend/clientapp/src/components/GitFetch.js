@@ -109,7 +109,7 @@ class GitFetch extends React.Component{
                         var color = "rgb(var(--color" + key;
                         color+= "))";
                         var value = {backgroundColor: color};
-                        return <div className="d-flex"> <p>{data.name}</p> <div id="colorbox" style={value}> </div></div>
+                        return <div className="d-flex"><div id="colorbox" style={value}></div><p>{data.name}</p></div>
                       })
                       }
                     </div>

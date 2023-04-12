@@ -22,6 +22,7 @@
 .App {
   text-align: left;
   color: rgb(var(--theme1-text));
+  padding-bottom: 0;
 }
 .font-small{
   font-size: 18px;

@@ -26,15 +26,15 @@ footer > .footer-info{
     flex-direction: column;
 }
 
-.footer-info > p > a {
+.footer-info > p > a, .footer-info > * > p > a {
     text-decoration: none;
     color: inherit;
 }
-.footer-info > p > a:hover {
+.footer-info > p > a:hover, .footer-info > * > p > a:hover {
     text-decoration: none;
     color: rgb(var(--theme1-accent));
 }
-.footer-info > p > a:active {
+.footer-info > p > a:active, .footer-info > * > p > a:active {
     text-decoration: none;
     color: black;
 }

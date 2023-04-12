@@ -1,0 +1,15 @@
+.topscroll{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 22px;
+    z-index: 9999;
+}
+.topscroll > button{
+    background: none;
+    border: none;
+    color: rgb(var(--theme1-accent2));
+    background-color: rgb(var(--theme1-border));
+    border-radius: 50%;
+    padding-bottom: 2px;
+}

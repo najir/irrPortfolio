@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
+import TopScroll from "./components/TopScroll";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import { Route, Routes } from 'react-router-dom';
@@ -16,6 +17,7 @@ function App() {
         <NavBar />
       </header>
       <div>
+        <TopScroll />
         <Routes>
           {ClientRoutes.map((route, index) => {
               const { page, requireAuth, ...rest } = route;

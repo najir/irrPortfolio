@@ -19,12 +19,14 @@
     width: fit-content;
     grid-template-columns: repeat(7, 30px);
     grid-auto-rows: repeat(5, 30px);
-    gap: 5px 5px;
+    gap: 10px 5px;
     justify-content: center;
     border-top: 3px solid rgb(var(--theme1-border));
+    padding-top: 5px;
 }
 .data-object{
     background-color: rgba(var(--theme1-other), 0);
+    border-radius: 25%;
     margin: 0;
     padding: 0;
     height: 20px;
@@ -62,6 +64,7 @@
     padding: 0;
     height: 25px;
     border-left: 3px solid rgb(var(--theme1-border));
+    border-bottom: 3px solid black;
     background-color: rgb(var(--theme1-other));
 }
 .bar > span{
@@ -105,7 +108,9 @@
     flex-direction: column;
 }
 .pie-data #colorbox{
-    margin-left: 3px;
+    margin-right: 6px;
+    margin-left: 12px;
+    margin-top: 8px;
     border-radius: 25%;
     height: 15px;
     width: 15px;

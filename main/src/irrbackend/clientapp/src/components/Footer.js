@@ -30,13 +30,12 @@ const Footer = () => {
                     </div>
                     <div className="d-flex align-items-start">
                       <i className="bi bi-linkedin font-small me-2"></i>
-                      <p>Linked In</p>
+                      <p><a href="https://www.linkedin.com/in/isaac-perks/">Linked-In</a></p>
 
                     </div>
                     <div className="d-flex align-items-start">
                       <i className="bi bi-github font-small me-2"></i>
-                      <p>GitHub</p>
-    
+                      <p><a href="https://www.github.com/najir/">Github</a></p>
                     </div>
                 </div>
             </div>

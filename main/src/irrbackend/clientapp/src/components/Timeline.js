@@ -116,7 +116,7 @@ class Timeline extends React.Component{
                 <div id="clearbox">
                     <div className="timeline-bar"></div>
                     <div className="timeline-wrapper">
-                        {this.timelineData.map((data)=>{
+                        {this.timelineData.map((data, index)=>{
                             if(data.title==="gap"){
                                 return <div className="timeline-gap"></div>
                             }else{
@@ -124,7 +124,7 @@ class Timeline extends React.Component{
                                     <div>
                                         <div className="circle-date">{data.start}</div>
                                         <div className="timeline-circle">
-                                        <span>
+                                        <span className={index > 5 ? "left" : ""}>
                                             <p className="date-text">{data.start}-{data.end}</p>
                                             <p>{data.title}</p>
                                             <p>{data.description}</p>

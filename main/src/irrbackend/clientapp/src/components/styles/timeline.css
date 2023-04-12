@@ -43,11 +43,14 @@
     bottom: 30px; 
     text-align: left; 
     padding: 5px;
-    max-width: 400px;
+    max-width: 300px;
     min-width: 250px;
     width: max-content; 
     height: auto; 
     background-color: rgb(var(--theme1-accent)); 
+}
+.timeline-circle > .left{
+    right: 5px;
 }
 .timeline-circle:hover > span{
     visibility: visible;
